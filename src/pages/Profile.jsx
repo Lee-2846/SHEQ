@@ -1,0 +1,6 @@
+import { Link } from "react-router-dom";
+import { ShieldCheck, UserRound, Users, Bell } from "lucide-react";
+
+export default function Profile({user}){
+ return <div className="container page-container"><div className="profile-hero"><div className="avatar">{(user?.name||"L").charAt(0).toUpperCase()}</div><div><div className="eyebrow">YOUR PROFILE</div><h1>{user?.name||"SHEQ Member"}</h1><p>{user?.email||"member@sheq.app"}</p></div></div><div className="profile-grid"><div className="profile-card"><UserRound/><h3>Personal details</h3><p>Manage your basic account information.</p><button className="btn btn-outline">Edit details</button></div><div className="profile-card"><Users/><h3>Trusted contacts</h3><p>Add people you would want to reach in an emergency.</p><Link className="btn btn-outline" to="/sos">Manage contacts</Link></div><div className="profile-card"><Bell/><h3>Alert preferences</h3><p>Choose which community updates you want to receive.</p><button className="btn btn-outline">Preferences</button></div><div className="profile-card"><ShieldCheck/><h3>Privacy</h3><p>Anonymous reporting remains available for individual reports.</p><button className="btn btn-outline">Privacy settings</button></div></div></div>
+}
