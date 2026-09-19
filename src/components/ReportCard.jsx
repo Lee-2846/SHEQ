@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight, CheckCircle2, Clock3 } from "lucide-react";
+import { getSignalBadgeClass } from "../utils/badgeHelpers";
 
 export default function ReportCard({ report }) {
   return (
     <Link to={`/incident/${report.id}`} className="report-card">
       <div className="report-card-top">
-        <span className="category-pill">{report.category}</span>
-        <span className="signal-text">{report.signal}</span>
+        <span className="badge badge-category">{report.category}</span>
+        <span className={`badge ${getSignalBadgeClass(report.signal)}`}>{report.signal}</span>
       </div>
       <h3>{report.place}</h3>
       <p>{report.description}</p>
