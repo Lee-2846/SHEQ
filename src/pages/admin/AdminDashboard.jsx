@@ -4,46 +4,52 @@ import {
   Flame,
   AlertCircle,
   Share2,
-  ArrowRight,
-  AlertTriangle
+  AlertTriangle,
+  CheckCircle2,
+  Clock,
+  ShieldCheck
 } from "lucide-react";
 import StatCard from "../../components/StatCard";
 import { useData } from "../../context/DataContext";
 import { getStatusBadgeClass } from "../../utils/badgeHelpers";
 
 export default function AdminDashboard() {
-  const { reports, hotspotCandidates, issues, escalations, stats } = useData();
+  const { reports, hotspotCandidates, hotspots, issues, escalations, stats } = useData();
 
-  const pendingReports = reports.filter(r => r.status === "Submitted" || r.status === "Under Review" || r.status === "Under review");
-  const disputedReports = reports.filter(r => r.disputes > 0 || (r.disputeNotes && r.disputeNotes.length > 0));
+  const pendingReports = reports.filter(
+    r => r.status === "Submitted" || r.status === "Under Review" || r.status === "Under review"
+  );
+  const disputedReports = reports.filter(
+    r => r.disputes > 0 || (r.disputeNotes && r.disputeNotes.length > 0)
+  );
 
   return (
     <div className="admin-overview">
-      {/* Overview Stat Cards */}
+      {/* High-Level Overview Stat Cards */}
       <div className="stat-grid">
         <StatCard
           icon={FileText}
           value={stats.totalReports}
           label="Total Community Reports"
-          note={`${pendingReports.length} pending review`}
+          note={`${pendingReports.length} awaiting review`}
         />
         <StatCard
           icon={Flame}
           value={hotspotCandidates.length}
           label="Hotspot Candidates"
-          note="provisional scoring flag"
+          note={`${stats.activeHotspotsCount} active designated`}
         />
         <StatCard
           icon={AlertCircle}
           value={issues.length}
-          label="Internal Issues"
+          label="Open Internal Issues"
           note={`${stats.resolvedIssuesCount} resolved`}
         />
         <StatCard
           icon={Share2}
           value={escalations.length}
           label="Escalation Records"
-          note="internal liaison tracking"
+          note="external authority tracking"
         />
       </div>
 
@@ -55,7 +61,7 @@ export default function AdminDashboard() {
             <div>
               <strong>{hotspotCandidates.length} Hotspot Candidate(s) Awaiting Admin Review</strong>
               <p>
-                Provisional candidate algorithm flagged concentrated community reports. Review supporting reports
+                Provisional candidate algorithm flagged concentrated community reports. Review supporting evidence
                 to officially designate as SHEQ Hotspot.
               </p>
             </div>
@@ -66,9 +72,9 @@ export default function AdminDashboard() {
         </div>
       )}
 
-      {/* Disputed Reports Alert Box if any */}
+      {/* Disputed Reports Alert Box */}
       {disputedReports.length > 0 && (
-        <div className="dispute-alert-card">
+        <div className="dispute-alert-card" style={{ marginTop: "14px" }}>
           <div className="candidate-alert-header">
             <AlertTriangle size={20} className="text-danger" />
             <div>
@@ -137,21 +143,52 @@ export default function AdminDashboard() {
           </div>
         </div>
 
-        {/* Quick Admin Actions */}
+        {/* FIX 16: Replaced duplicate "ADMINISTRATIVE ACTIONS" panel with live Operational Health & Summary */}
         <div className="side-card">
-          <div className="eyebrow">ADMINISTRATIVE ACTIONS</div>
-          <Link to="/admin/reports">
-            Moderate Reports <ArrowRight />
-          </Link>
-          <Link to="/admin/hotspots">
-            Hotspot Analysis <ArrowRight />
-          </Link>
-          <Link to="/admin/issues">
-            Create SHEQ Issue Record <ArrowRight />
-          </Link>
-          <Link to="/admin/escalations">
-            Log External Escalation <ArrowRight />
-          </Link>
+          <div className="eyebrow">OPERATIONAL SUMMARY</div>
+          <h3 style={{ margin: "4px 0 16px", fontSize: "18px" }}>Network Health</h3>
+
+          <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+              <div style={{ width: "36px", height: "36px", borderRadius: "8px", background: "rgba(108, 47, 65, 0.08)", display: "grid", placeItems: "center", color: "var(--berry)" }}>
+                <ShieldCheck size={18} />
+              </div>
+              <div>
+                <strong style={{ fontSize: "13px", display: "block" }}>Moderation System Active</strong>
+                <small style={{ color: "var(--muted)", fontSize: "11px" }}>{pendingReports.length} pending moderation queue</small>
+              </div>
+            </div>
+
+            <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+              <div style={{ width: "36px", height: "36px", borderRadius: "8px", background: "rgba(224, 138, 77, 0.12)", display: "grid", placeItems: "center", color: "#a35817" }}>
+                <Flame size={18} />
+              </div>
+              <div>
+                <strong style={{ fontSize: "13px", display: "block" }}>Hotspot Scoring Active</strong>
+                <small style={{ color: "var(--muted)", fontSize: "11px" }}>{hotspots.filter(h => h.active).length} designated hotspots verified</small>
+              </div>
+            </div>
+
+            <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+              <div style={{ width: "36px", height: "36px", borderRadius: "8px", background: "rgba(43, 122, 75, 0.1)", display: "grid", placeItems: "center", color: "#2b7a4b" }}>
+                <CheckCircle2 size={18} />
+              </div>
+              <div>
+                <strong style={{ fontSize: "13px", display: "block" }}>Issue Resolution Rate</strong>
+                <small style={{ color: "var(--muted)", fontSize: "11px" }}>{stats.resolvedIssuesCount} of {issues.length} defect issues resolved</small>
+              </div>
+            </div>
+
+            <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+              <div style={{ width: "36px", height: "36px", borderRadius: "8px", background: "rgba(108, 47, 65, 0.08)", display: "grid", placeItems: "center", color: "var(--berry)" }}>
+                <Clock size={18} />
+              </div>
+              <div>
+                <strong style={{ fontSize: "13px", display: "block" }}>Dispute Queue</strong>
+                <small style={{ color: "var(--muted)", fontSize: "11px" }}>{disputedReports.length} reports awaiting dispute check</small>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -1,12 +1,12 @@
-import { useMemo, useState, useEffect } from "react";
+import { useMemo, useState, useEffect, useRef } from "react";
 import { MapContainer, TileLayer, CircleMarker, Popup, useMap } from "react-leaflet";
 import { Link } from "react-router-dom";
-import { Filter, Search, Map as MapIcon, ListFilter, Flame } from "lucide-react";
-import { categories } from "../data/mockData";
+import { Filter, Search, Map as MapIcon, ListFilter, Flame, MapPin, X, Navigation } from "lucide-react";
+import { categories, SEARCH_LOCATIONS, knownLocations } from "../data/mockData";
 import { getSignalBadgeClass, getStatusBadgeClass } from "../utils/badgeHelpers";
 import { useData } from "../context/DataContext";
 
-// Helper component inside MapContainer to pan/zoom when target location changes
+// Helper component inside MapContainer to pan/zoom smoothly when target location changes
 function MapViewController({ center, zoom }) {
   const map = useMap();
   useEffect(() => {
@@ -23,22 +23,78 @@ export default function SafetyMap() {
   const [query, setQuery] = useState("");
   const [mobileTab, setMobileTab] = useState("map"); // "map" | "list"
   const [selectedReportId, setSelectedReportId] = useState(null);
-  const [mapCenter, setMapCenter] = useState([18.5204, 73.8567]);
+  const [mapCenter, setMapCenter] = useState([19.0760, 72.8777]); // Default: Mumbai, India
   const [mapZoom, setMapZoom] = useState(13);
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const searchContainerRef = useRef(null);
 
-  // Filter reports
+  // Close suggestions dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(e) {
+      if (searchContainerRef.current && !searchContainerRef.current.contains(e.target)) {
+        setShowSuggestions(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // Filter reports by category and text search
   const filteredReports = useMemo(() => {
     return reports.filter(r => {
       const matchesCategory = category === "All" || r.category === category;
-      const q = query.toLowerCase();
+      const q = query.toLowerCase().trim();
       const matchesQuery =
-        !query.trim() ||
+        !q ||
         (r.place && r.place.toLowerCase().includes(q)) ||
+        (r.city && r.city.toLowerCase().includes(q)) ||
         (r.category && r.category.toLowerCase().includes(q)) ||
         (r.description && r.description.toLowerCase().includes(q));
       return matchesCategory && matchesQuery;
     });
   }, [reports, category, query]);
+
+  // Dynamic location suggestions matching query
+  const suggestions = useMemo(() => {
+    const q = query.toLowerCase().trim();
+    if (!q || q.length < 2) return [];
+
+    const matches = [];
+
+    // 1. Search in SEARCH_LOCATIONS
+    SEARCH_LOCATIONS.forEach(loc => {
+      if (
+        loc.name.toLowerCase().includes(q) ||
+        loc.keywords.some(k => k.includes(q))
+      ) {
+        matches.push({
+          type: "location",
+          label: `${loc.name}, ${loc.city}`,
+          center: loc.center,
+          zoom: loc.zoom
+        });
+      }
+    });
+
+    // 2. Search in known reports
+    reports.forEach(r => {
+      if (
+        r.place &&
+        r.place.toLowerCase().includes(q) &&
+        !matches.some(m => m.label.toLowerCase().includes(r.place.toLowerCase()))
+      ) {
+        matches.push({
+          type: "report",
+          label: `${r.place} (${r.category})`,
+          center: [r.lat, r.lng],
+          zoom: 15,
+          reportId: r.id
+        });
+      }
+    });
+
+    return matches.slice(0, 5);
+  }, [query, reports]);
 
   function handleSelectReport(r) {
     setSelectedReportId(r.id);
@@ -51,18 +107,85 @@ export default function SafetyMap() {
     }
   }
 
-  function handleSearchSubmit(e) {
-    e.preventDefault();
-    if (!query.trim()) return;
+  // Location resolution function that functionally moves the map
+  function moveToLocation(targetLocation) {
+    if (!targetLocation) return;
 
-    // Check if query matches any known report place
-    const matched = reports.find(
-      r => r.place && r.place.toLowerCase().includes(query.toLowerCase())
-    );
-    if (matched && matched.lat && matched.lng) {
-      handleSelectReport(matched);
+    if (targetLocation.center) {
+      setMapCenter(targetLocation.center);
+      setMapZoom(targetLocation.zoom || 15);
+    }
+    if (targetLocation.reportId) {
+      setSelectedReportId(targetLocation.reportId);
+    }
+
+    setShowSuggestions(false);
+
+    // On mobile screens, auto-switch to map view to display movement
+    if (window.innerWidth <= 900) {
+      setMobileTab("map");
     }
   }
+
+  function handleSearchSubmit(e) {
+    e.preventDefault();
+    const q = query.toLowerCase().trim();
+    if (!q) return;
+
+    // 1. Check exact or keyword match in SEARCH_LOCATIONS
+    const foundLoc = SEARCH_LOCATIONS.find(
+      loc =>
+        loc.name.toLowerCase() === q ||
+        loc.keywords.some(k => k === q) ||
+        loc.name.toLowerCase().includes(q) ||
+        loc.keywords.some(k => k.includes(q))
+    );
+
+    if (foundLoc) {
+      moveToLocation(foundLoc);
+      return;
+    }
+
+    // 2. Check knownLocations list
+    const foundKnown = knownLocations.find(
+      l => l.place.toLowerCase().includes(q) || l.city.toLowerCase().includes(q)
+    );
+    if (foundKnown && foundKnown.lat && foundKnown.lng) {
+      moveToLocation({ center: [foundKnown.lat, foundKnown.lng], zoom: 15 });
+      return;
+    }
+
+    // 3. Check reports
+    const matchedReport = reports.find(
+      r =>
+        (r.place && r.place.toLowerCase().includes(q)) ||
+        (r.category && r.category.toLowerCase().includes(q)) ||
+        (r.description && r.description.toLowerCase().includes(q))
+    );
+    if (matchedReport && matchedReport.lat && matchedReport.lng) {
+      handleSelectReport(matchedReport);
+      return;
+    }
+
+    // 4. Check hotspots
+    const matchedHotspot = hotspots.find(
+      h => h.place && h.place.toLowerCase().includes(q)
+    );
+    if (matchedHotspot && matchedHotspot.lat && matchedHotspot.lng) {
+      moveToLocation({ center: [matchedHotspot.lat, matchedHotspot.lng], zoom: 15 });
+    }
+  }
+
+  // Quick area chips for popular neighborhoods
+  const quickAreas = [
+    { label: "Bandra", center: [19.0596, 72.8295], zoom: 15 },
+    { label: "Powai", center: [19.1176, 72.9060], zoom: 15 },
+    { label: "Andheri", center: [19.1197, 72.8464], zoom: 15 },
+    { label: "Dadar", center: [19.0178, 72.8478], zoom: 15 },
+    { label: "Shivajinagar", center: [18.5308, 73.8475], zoom: 15 },
+    { label: "FC Road", center: [18.5236, 73.8417], zoom: 15 },
+    { label: "Swargate", center: [18.5018, 73.8636], zoom: 15 }
+  ];
 
   return (
     <div className="map-page">
@@ -93,15 +216,81 @@ export default function SafetyMap() {
             Explore community-reported observations, confirmed concerns, and active signals around your area.
           </p>
 
-          <form onSubmit={handleSearchSubmit} className="search-box">
-            <Search size={17} />
-            <input
-              value={query}
-              onChange={e => setQuery(e.target.value)}
-              placeholder="Search area, place, or category (Press Enter)"
-              aria-label="Search reports"
-            />
-          </form>
+          {/* Search Box with Search-to-Map Movement & Auto-Suggestions */}
+          <div className="search-box-container" ref={searchContainerRef} style={{ position: "relative" }}>
+            <form onSubmit={handleSearchSubmit} className="search-box" style={{ margin: "20px 0 10px" }}>
+              <Search size={17} className="text-berry" />
+              <input
+                value={query}
+                onChange={e => {
+                  setQuery(e.target.value);
+                  setShowSuggestions(true);
+                }}
+                onFocus={() => setShowSuggestions(true)}
+                placeholder="Search Bandra, Powai, Andheri, FC Road..."
+                aria-label="Search area or location"
+              />
+              {query && (
+                <button
+                  type="button"
+                  className="icon-action-btn"
+                  onClick={() => {
+                    setQuery("");
+                    setShowSuggestions(false);
+                  }}
+                  title="Clear search"
+                >
+                  <X size={15} />
+                </button>
+              )}
+              <button type="submit" className="btn btn-berry btn-sm" style={{ padding: "6px 12px", fontSize: "12px" }}>
+                Search
+              </button>
+            </form>
+
+            {/* Suggestions Dropdown */}
+            {showSuggestions && suggestions.length > 0 && (
+              <div className="search-suggestions-dropdown">
+                {suggestions.map((s, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    className="suggestion-item"
+                    onClick={() => {
+                      setQuery(s.label.split("(")[0].trim());
+                      moveToLocation(s);
+                    }}
+                  >
+                    <MapPin size={14} className="text-berry" />
+                    <span>{s.label}</span>
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Quick Location Chips */}
+          <div style={{ marginBottom: "18px" }}>
+            <span style={{ fontSize: "11px", fontWeight: 700, color: "var(--muted)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+              Quick Navigation:
+            </span>
+            <div style={{ display: "flex", gap: "6px", flexWrap: "wrap", marginTop: "6px" }}>
+              {quickAreas.map(a => (
+                <button
+                  key={a.label}
+                  type="button"
+                  className="filter-chip"
+                  style={{ fontSize: "11px", padding: "4px 10px", display: "inline-flex", alignItems: "center", gap: "4px" }}
+                  onClick={() => {
+                    setQuery(a.label);
+                    moveToLocation(a);
+                  }}
+                >
+                  <Navigation size={10} /> {a.label}
+                </button>
+              ))}
+            </div>
+          </div>
 
           <div className="filter-label">
             <Filter size={15} /> Filter by category
@@ -264,16 +453,17 @@ export default function SafetyMap() {
               ))}
           </MapContainer>
 
+          {/* Map Legend */}
           <div className="map-legend">
-            <span>
-              <i className="legend-dot elevated" /> Elevated concern
-            </span>
-            <span>
-              <i className="legend-dot standard" /> Community report
-            </span>
-            <span>
-              <i className="legend-dot hotspot" /> SHEQ Hotspot
-            </span>
+            <div>
+              <span className="legend-dot standard" /> Standard report
+            </div>
+            <div>
+              <span className="legend-dot elevated" /> Elevated concern
+            </div>
+            <div>
+              <span className="legend-dot hotspot" /> SHEQ Hotspot
+            </div>
           </div>
         </div>
       </div>

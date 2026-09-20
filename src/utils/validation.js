@@ -1,12 +1,65 @@
 export const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-export const phoneRegex = /^[6-9]\d{9}$/;
+export const phoneRegex = /^[0-9]{10}$/;
+export const specialCharRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
 
 export function validateEmail(value) {
-  return emailRegex.test(value);
+  if (!value || typeof value !== "string") return false;
+  return emailRegex.test(value.trim());
 }
 
 export function validatePhone(value) {
-  return phoneRegex.test(value.replace(/\s+/g, ""));
+  if (!value || typeof value !== "string") return false;
+  const digitsOnly = value.replace(/\D/g, "");
+  return phoneRegex.test(digitsOnly);
+}
+
+export function cleanPhoneInput(value) {
+  if (!value) return "";
+  return value.replace(/\D/g, "").slice(0, 10);
+}
+
+export function validatePassword(value) {
+  if (!value) {
+    return {
+      isValid: false,
+      hasMinLength: false,
+      hasSpecialChar: false,
+      message: "Password is required."
+    };
+  }
+
+  const hasMinLength = value.length >= 6;
+  const hasSpecialChar = specialCharRegex.test(value);
+  const isValid = hasMinLength && hasSpecialChar;
+
+  let message = "";
+  if (!hasMinLength && !hasSpecialChar) {
+    message = "Must be at least 6 characters and include a special character.";
+  } else if (!hasMinLength) {
+    message = "Password must be at least 6 characters.";
+  } else if (!hasSpecialChar) {
+    message = "Password must include at least one special character (!@#$%^&*...).";
+  }
+
+  return {
+    isValid,
+    hasMinLength,
+    hasSpecialChar,
+    message
+  };
+}
+
+export function validateConfirmPassword(password, confirmPassword) {
+  if (!password) {
+    return { isValid: true, message: "" };
+  }
+  if (!confirmPassword) {
+    return { isValid: false, message: "Please confirm your password." };
+  }
+  if (password !== confirmPassword) {
+    return { isValid: false, message: "Passwords do not match." };
+  }
+  return { isValid: true, message: "" };
 }
 
 export function validateReport(data) {

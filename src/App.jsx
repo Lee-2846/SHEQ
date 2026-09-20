@@ -2,10 +2,12 @@ import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { AuthProvider } from "./context/AuthContext";
 import { DataProvider } from "./context/DataContext";
+import { LanguageProvider } from "./context/LanguageContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AdminRoute from "./components/AdminRoute";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 
 // Public Pages
 import Landing from "./pages/Landing";
@@ -39,7 +41,9 @@ export default function App() {
   return (
     <AuthProvider>
       <DataProvider>
+        <LanguageProvider>
         <div className="app-shell">
+          <ScrollToTop />
           <Navbar />
           <AnimatePresence mode="wait">
             <motion.main
@@ -147,6 +151,7 @@ export default function App() {
           </AnimatePresence>
           {isPublic && <Footer />}
         </div>
+      </LanguageProvider>
       </DataProvider>
     </AuthProvider>
   );
