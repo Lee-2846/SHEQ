@@ -17,10 +17,10 @@ export default function ReportCard({ report }) {
       <h3>{report.place}</h3>
       <p>{report.description}</p>
       <div className="report-meta">
-        <span><Clock3 size={14}/> {report.date} · {report.time}</span>
-        <span><CheckCircle2 size={14}/> {report.confirmations || 0} confirmations</span>
+        <span><Clock3 size={14} /> {report.date} · {report.time}</span>
+        <span><CheckCircle2 size={14} /> {report.confirmations || 0} confirmations</span>
       </div>
-      <div className="report-arrow"><ArrowUpRight size={18}/></div>
+      <div className="report-arrow"><ArrowUpRight size={18} /></div>
     </Link>
   );
 }

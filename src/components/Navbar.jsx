@@ -49,6 +49,7 @@ export default function Navbar() {
     logout();
     setMobileOpen(false);
     setProfileDropdownOpen(false);
+    setOpen(false);
     navigate("/");
   }
 
@@ -76,6 +77,17 @@ export default function Navbar() {
     { to: "/admin/escalations", label: "Escalations" },
     { to: "/admin/moderation", label: "Moderation" }
   ];
+
+  // Close mobile drawer on Escape key
+  useEffect(() => {
+    function handleKeyDown(e) {
+      if (e.key === "Escape") setOpen(false);
+    }
+    if (open) {
+      window.addEventListener("keydown", handleKeyDown);
+    }
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [open]);
 
   return (
     <>
