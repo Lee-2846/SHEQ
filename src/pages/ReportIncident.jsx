@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { CheckCircle2, MapPin, ShieldCheck, Camera, X, Info } from "lucide-react";
+import { CheckCircle2, MapPin, ShieldCheck, Camera, X, ArrowRight } from "lucide-react";
 import { categories, knownLocations } from "../data/mockData";
 import { validateReport } from "../utils/validation";
 import { useData } from "../context/DataContext";
@@ -19,7 +19,7 @@ export default function ReportIncident() {
     place: "",
     lat: null,
     lng: null,
-    city: "Pune",
+    city: "Mumbai",
     date: todayDate,
     time: currentTime,
     description: "",
@@ -57,6 +57,14 @@ export default function ReportIncident() {
   function handlePhotoUpload(e) {
     const file = e.target.files?.[0];
     if (file) {
+      if (!file.type.startsWith("image/")) {
+        alert("Please select a valid image file.");
+        return;
+      }
+      if (file.size > 2 * 1024 * 1024) {
+        alert("Image size should be under 2MB.");
+        return;
+      }
       const reader = new FileReader();
       reader.onloadend = () => {
         update("photoPreview", reader.result);
@@ -106,7 +114,7 @@ export default function ReportIncident() {
           </p>
           <div className="success-actions">
             <button className="btn btn-berry" onClick={() => navigate("/map")}>
-              See it on the Safety Map
+              See it on the Safety Map →
             </button>
             <button
               className="btn btn-outline"
@@ -117,7 +125,7 @@ export default function ReportIncident() {
                   place: "",
                   lat: null,
                   lng: null,
-                  city: "Pune",
+                  city: "Mumbai",
                   date: todayDate,
                   time: currentTime,
                   description: "",
@@ -154,15 +162,19 @@ export default function ReportIncident() {
         </div>
       </div>
 
-      <form className="report-form" onSubmit={handleSubmit}>
-        <div className="form-grid">
-          {/* 9 Standardized Categories Dropdown */}
-          <label htmlFor="report-category">
-            What kind of concern?
+      <form className="report-form" onSubmit={handleSubmit} noValidate>
+        {/* FIX 11: Clean 2-Column Form Grid */}
+        <div className="form-grid-2col">
+          {/* Column 1: Category */}
+          <div className="form-group">
+            <label className="form-label" htmlFor="report-category">
+              What kind of concern?
+            </label>
             <select
               id="report-category"
               value={form.category}
               onChange={e => update("category", e.target.value)}
+              className="form-select-control"
             >
               <option value="">Select a category</option>
               {categories
@@ -173,19 +185,21 @@ export default function ReportIncident() {
                   </option>
                 ))}
             </select>
-            {errors.category && <small className="field-error">{errors.category}</small>}
-          </label>
+            {errors.category && <small className="field-error-text">{errors.category}</small>}
+          </div>
 
-          {/* Location / Area selection with verified coordinate assignment */}
-          <label htmlFor="report-location">
-            Location / Area
-            <div className="input-with-icon">
-              <MapPin size={17} />
+          {/* Column 2: Location / Area */}
+          <div className="form-group">
+            <label className="form-label" htmlFor="report-location">
+              Location / Area
+            </label>
+            <div className="input-with-icon-wrapper">
+              <MapPin size={17} className="input-inner-icon" />
               <select
                 id="report-location"
                 value={form.place}
                 onChange={handleSelectKnownLocation}
-                className="location-select-input"
+                className="form-select-control with-icon"
               >
                 <option value="">Select recognized location...</option>
                 {knownLocations.map(loc => (
@@ -195,75 +209,82 @@ export default function ReportIncident() {
                 ))}
               </select>
             </div>
-            {errors.place && <small className="field-error">{errors.place}</small>}
-          </label>
+            {errors.place && <small className="field-error-text">{errors.place}</small>}
+          </div>
 
-          {/* Standardized Date */}
-          <label htmlFor="report-date">
-            Date
+          {/* Column 1: Date */}
+          <div className="form-group">
+            <label className="form-label" htmlFor="report-date">
+              Date of Observation
+            </label>
             <input
               id="report-date"
               type="date"
               value={form.date}
               onChange={e => update("date", e.target.value)}
+              className="form-input-control"
             />
-          </label>
+          </div>
 
-          {/* Standardized Time */}
-          <label htmlFor="report-time">
-            Approx. time
+          {/* Column 2: Time */}
+          <div className="form-group">
+            <label className="form-label" htmlFor="report-time">
+              Approx. Time
+            </label>
             <input
               id="report-time"
               type="time"
               value={form.time}
               onChange={e => update("time", e.target.value)}
+              className="form-input-control"
             />
-          </label>
+          </div>
         </div>
 
-        {/* Description */}
-        <label htmlFor="report-description">
-          Description & Context
+        {/* Full Width: Description */}
+        <div className="full-width-group">
+          <label className="form-label" htmlFor="report-description">
+            Description & Context
+          </label>
           <textarea
             id="report-description"
             rows="5"
             value={form.description}
             onChange={e => update("description", e.target.value)}
-            placeholder="What did you notice? What context might help someone else make an informed decision?"
+            placeholder="What did you notice? What details or landmarks might help someone else navigate safely?"
+            className="form-textarea-control"
           />
-          {errors.description && <small className="field-error">{errors.description}</small>}
-        </label>
+          {errors.description && <small className="field-error-text">{errors.description}</small>}
+        </div>
 
         {/* Optional Photo Upload Preview (Client File API) */}
-        <div className="photo-upload-section">
-          <label className="photo-upload-label">
-            <span className="field-label-text">Optional Photo Evidence (Client preview only)</span>
-            {!form.photoPreview ? (
-              <label htmlFor="photo-input" className="photo-dropzone">
-                <Camera size={22} className="text-berry" />
-                <span>Click to select an image from your device</span>
-                <small>Image stays in your browser memory for preview. No external upload.</small>
-                <input
-                  id="photo-input"
-                  type="file"
-                  accept="image/*"
-                  onChange={handlePhotoUpload}
-                  style={{ display: "none" }}
-                />
-              </label>
-            ) : (
-              <div className="photo-preview-container">
-                <img src={form.photoPreview} alt="Evidence preview" className="photo-preview-img" />
-                <button
-                  type="button"
-                  className="btn btn-outline btn-sm remove-photo-btn"
-                  onClick={handleRemovePhoto}
-                >
-                  <X size={14} /> Remove photo
-                </button>
-              </div>
-            )}
-          </label>
+        <div className="full-width-group">
+          <span className="form-label">Optional Photo Evidence (Client preview only)</span>
+          {!form.photoPreview ? (
+            <label htmlFor="photo-input" className="photo-dropzone">
+              <Camera size={22} className="text-berry" />
+              <span>Click to select an image from your device</span>
+              <small>Image stays in your browser memory for preview. No external upload.</small>
+              <input
+                id="photo-input"
+                type="file"
+                accept="image/*"
+                onChange={handlePhotoUpload}
+                style={{ display: "none" }}
+              />
+            </label>
+          ) : (
+            <div className="photo-preview-container">
+              <img src={form.photoPreview} alt="Evidence preview" className="photo-preview-img" />
+              <button
+                type="button"
+                className="btn btn-outline btn-sm remove-photo-btn"
+                onClick={handleRemovePhoto}
+              >
+                <X size={14} /> Remove photo
+              </button>
+            </div>
+          )}
         </div>
 
         {/* Anonymous Reporting Toggle */}
@@ -272,7 +293,7 @@ export default function ReportIncident() {
             <strong>Submit anonymously</strong>
             <p>
               Your name will not appear publicly on this report. SHEQ internally associates the report with your
-              verified account for accountability.
+              verified account for authenticity.
             </p>
           </div>
           <label className="switch" htmlFor="report-anonymous">
@@ -291,7 +312,7 @@ export default function ReportIncident() {
         {errors.form && <div className="form-error">{errors.form}</div>}
 
         <button disabled={sending} className="btn btn-berry btn-lg" type="submit">
-          {sending ? "Submitting..." : "Submit community report →"}
+          {sending ? "Submitting..." : "Submit Community Report"} <ArrowRight size={18} />
         </button>
       </form>
     </div>

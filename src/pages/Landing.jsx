@@ -1,137 +1,185 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, MapPin, Users, ShieldCheck, CircleAlert, BarChart3 } from "lucide-react";
+import { ArrowRight, MapPin, Users, ShieldCheck, CircleAlert, BarChart3, EyeOff, Radio } from "lucide-react";
 import SectionTitle from "../components/SectionTitle";
 import ReportCard from "../components/ReportCard";
 import { useData } from "../context/DataContext";
 import { useAuth } from "../context/AuthContext";
+import { useLanguage } from "../context/LanguageContext";
+import sheqHero from "../assets/sheq-hero.png";
 
-const dots = Array.from({ length: 34 }, (_, i) => ({
-  left: `${8 + (i * 23) % 82}%`,
-  top: `${12 + (i * 37) % 72}%`,
-  delay: (i % 7) * 0.12
+const dots = Array.from({ length: 32 }, (_, i) => ({
+  left: `${10 + (i * 27) % 78}%`,
+  top: `${14 + (i * 31) % 68}%`,
+  delay: (i % 6) * 0.15
 }));
 
 export default function Landing() {
   const { scrollYProgress } = useScroll();
-  const y = useTransform(scrollYProgress, [0, 1], [0, -120]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
   const { reports, stats } = useData();
   const { isAuthenticated } = useAuth();
+  const { t } = useLanguage();
 
   return (
     <>
+      {/* 1. Hero Section */}
       <section className="hero">
         <motion.div className="hero-orb orb-one" style={{ y }} />
         <motion.div className="hero-orb orb-two" />
-        <div className="container hero-grid">
-          <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7 }}>
-            <div className="eyebrow">COMMUNITY × SAFETY × INSIGHT</div>
-            <h1>
-              Safety becomes stronger when <em>we share what we know.</em>
-            </h1>
-            <p className="hero-copy">
-              SHEQ turns everyday safety experiences into a community signal — helping women understand their
-              surroundings, report concerns, and make more informed decisions.
-            </p>
-            <div className="hero-actions">
-              <Link to={isAuthenticated ? "/map" : "/login"} className="btn btn-berry btn-lg">
-                Explore the Safety Map <ArrowRight size={18} />
-              </Link>
-              <Link to={isAuthenticated ? "/report" : "/login"} className="text-link">
-                Share a report <span>↗</span>
-              </Link>
-            </div>
-            <div className="hero-trust">
-              <ShieldCheck size={17} /> Anonymous reporting available · Community-verified signals
-            </div>
+        <div className="container">
+          <motion.div
+            className="hero-image-wrapper"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <img src={sheqHero} alt="SHEQ Community Safety" className="hero-image" />
           </motion.div>
 
-          <motion.div
-            className="hero-visual"
-            initial={{ opacity: 0, scale: 0.92 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.15 }}
-          >
-            <div className="signal-card">
-              <div className="signal-head">
-                <span>LIVE COMMUNITY SIGNAL</span>
-                <span className="pulse-dot" />
+          <div className="hero-grid">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <div className="eyebrow">{t("home.eyebrow")}</div>
+              <h1>
+                Safety becomes stronger when <em>we share what we know.</em>
+              </h1>
+              <p className="hero-copy">
+                {t("home.heroSubtitle")}
+              </p>
+
+              <div className="hero-actions">
+                <Link to={isAuthenticated ? "/dashboard" : "/signup"} className="btn btn-berry btn-lg">
+                  {isAuthenticated ? "Go to Dashboard" : t("home.ctaSignup")} <ArrowRight size={18} />
+                </Link>
+                <Link to="/map" className="btn btn-outline btn-lg hero-secondary-btn">
+                  {t("home.ctaExplore")}
+                </Link>
               </div>
-              <div className="signal-map">
-                <div className="map-lines" />
-                {dots.map((d, i) => (
-                  <motion.i
-                    key={i}
-                    className="signal-dot"
-                    style={{ left: d.left, top: d.top }}
-                    animate={{ scale: [1, 1.6, 1], opacity: [0.4, 1, 0.4] }}
-                    transition={{ duration: 2.8, repeat: Infinity, delay: d.delay }}
-                  />
-                ))}
-                <motion.div
-                  className="signal-cluster"
-                  animate={{ rotate: [0, 5, -4, 0], scale: [0.98, 1.03, 0.98] }}
-                  transition={{ duration: 5, repeat: Infinity }}
-                >
-                  <div className="cluster-core">{reports.length}</div>
-                  <small>signals</small>
-                </motion.div>
+
+              <div className="hero-trust">
+                <ShieldCheck size={17} className="text-berry" />
+                <span>{t("home.trustBadge")}</span>
               </div>
-              <div className="signal-footer">
-                <div>
-                  <strong>{reports[0]?.place || "Shivajinagar"}</strong>
-                  <span>{reports[0]?.category || "Active concern"}</span>
+            </motion.div>
+
+            <motion.div
+              className="hero-visual"
+              initial={{ opacity: 0, scale: 0.94 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+            >
+              <div className="signal-card">
+                <div className="signal-head">
+                  <span className="signal-head-title">
+                    <Radio size={14} className="signal-live-icon" /> {t("home.liveSignal")}
+                  </span>
+                  <span className="pulse-dot" />
                 </div>
-                <div className="score">{stats.totalConfirmations}+</div>
+                <div className="signal-map">
+                  <div className="map-lines" />
+                  {dots.map((d, i) => (
+                    <motion.i
+                      key={i}
+                      className="signal-dot"
+                      style={{ left: d.left, top: d.top }}
+                      animate={{ scale: [1, 1.5, 1], opacity: [0.35, 1, 0.35] }}
+                      transition={{ duration: 2.6, repeat: Infinity, delay: d.delay }}
+                    />
+                  ))}
+                  <motion.div
+                    className="signal-cluster"
+                    animate={{ scale: [0.98, 1.03, 0.98] }}
+                    transition={{ duration: 4, repeat: Infinity }}
+                  >
+                    <div className="cluster-core">{reports.length}</div>
+                    <small>active signals</small>
+                  </motion.div>
+                </div>
+                <div className="signal-footer">
+                  <div>
+                    <strong>{reports[0]?.place || "Dadar East"}</strong>
+                    <span>{reports[0]?.category || "Active concern"}</span>
+                  </div>
+                  <div className="score">{stats.totalConfirmations}+ confirmations</div>
+                </div>
               </div>
-            </div>
-            <div className="floating-tag tag-one">
-              <Users size={15} /> {stats.totalConfirmations} community confirmations
-            </div>
-            <div className="floating-tag tag-two">
-              <MapPin size={15} /> {reports.length} active reports
-            </div>
-          </motion.div>
+
+              <div className="floating-tag tag-one">
+                <Users size={15} /> {stats.totalConfirmations} community confirmations
+              </div>
+              <div className="floating-tag tag-two">
+                <MapPin size={15} /> {reports.length} verified signals
+              </div>
+            </motion.div>
+          </div>
         </div>
         <div className="hero-bottom-fade" />
       </section>
 
+      {/* 2. Core Pillars / How it operates */}
       <section className="intro-section">
         <div className="container">
-          <SectionTitle eyebrow="THE IDEA" title="From isolated experiences to a shared safety picture.">
-            A single report tells one story. A community of reports can reveal a pattern.
+          <SectionTitle eyebrow="THE PRINCIPLE" title="From isolated experiences to shared clarity.">
+            A single report tells one story. A network of community observations surfaces verified patterns.
           </SectionTitle>
           <div className="process-grid">
             {[
-              [CircleAlert, "REPORT", "Share what happened or what feels unsafe."],
-              [Users, "VERIFY", "People nearby can confirm, dispute, or add context."],
-              [BarChart3, "UNDERSTAND", "Patterns become location and time-based safety signals."],
-              [ShieldCheck, "DECIDE", "Use the information to plan with more awareness."]
-            ].map(([Icon, title, text], i) => (
-              <motion.div
-                className="process-card"
-                key={title}
-                whileHover={{ y: -7 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <div className="process-num">0{i + 1}</div>
-                <Icon className="process-icon" />
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </motion.div>
-            ))}
+              {
+                icon: CircleAlert,
+                num: "01",
+                title: "Report Concerns",
+                text: "Share observations about dark stretches, harassment, transit gaps, or isolated spots."
+              },
+              {
+                icon: EyeOff,
+                num: "02",
+                title: "Choose Anonymity",
+                text: "Submit privately without revealing your name publicly on community maps."
+              },
+              {
+                icon: Users,
+                num: "03",
+                title: "Confirm & Verify",
+                text: "Nearby members confirm or dispute details to keep community context accurate."
+              },
+              {
+                icon: BarChart3,
+                num: "04",
+                title: "Navigate Informed",
+                text: "Use neighborhood signals and active hotspots to make aware, confident travel decisions."
+              }
+            ].map((step, i) => {
+              const Icon = step.icon;
+              return (
+                <motion.div
+                  className="process-card"
+                  key={step.title}
+                  whileHover={{ y: -5 }}
+                  transition={{ type: "spring", stiffness: 280 }}
+                >
+                  <div className="process-num">{step.num}</div>
+                  <Icon className="process-icon" />
+                  <h3>{step.title}</h3>
+                  <p>{step.text}</p>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Preview Section of Community Reports */}
+      {/* 3. Preview Section of Recent Community Reports */}
       <section className="preview-reports-section">
         <div className="container">
           <SectionTitle
             eyebrow="COMMUNITY ACTIVITY"
             title="Recent community observations."
           >
-            Real reports shared by local members to help keep everyone informed.
+            Verified reports shared by local members to help keep everyone informed.
           </SectionTitle>
           <div className="report-list">
             {reports.slice(0, 3).map(r => (
@@ -139,81 +187,86 @@ export default function Landing() {
             ))}
           </div>
           <div style={{ marginTop: "24px", textAlign: "center" }}>
-            <Link to={isAuthenticated ? "/map" : "/login"} className="btn btn-berry">
-              View All On Safety Map <ArrowRight size={16} />
+            <Link to="/map" className="btn btn-outline">
+              View All on Safety Map <ArrowRight size={16} />
             </Link>
           </div>
         </div>
       </section>
 
+      {/* 4. Why SHEQ Feature Grid */}
       <section className="berry-section">
         <div className="container berry-grid">
           <div>
-            <div className="eyebrow light-eyebrow">WHY SHEQ</div>
-            <h2>One place for the pieces of safety that usually feel fragmented.</h2>
-            <p>
-              Reports, community verification, location context, alerts, insights and emergency tools — brought
-              together without turning every street into a warning sign.
-            </p>
+            <div className="eyebrow light-eyebrow">{t("home.whySheq")}</div>
+            <h2>{t("home.whySheqTitle")}</h2>
+            <p>{t("home.whySheqDesc")}</p>
             <Link to="/about" className="btn btn-ivory">
               See how SHEQ works <ArrowRight size={17} />
             </Link>
           </div>
           <div className="mini-stack">
-            {["Community reports", "Verified safety signals", "Location-based alerts", "Insights & patterns"].map(
-              (x, i) => (
-                <motion.div
-                  key={x}
-                  className="stack-card"
-                  initial={{ x: 30, opacity: 0 }}
-                  whileInView={{ x: 0, opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                >
-                  <span>0{i + 1}</span>
-                  {x}
-                  <ArrowRight size={16} />
-                </motion.div>
-              )
-            )}
+            {[
+              "Community-verified safety signals",
+              "100% public anonymity toggle",
+              "Personalized saved place alerts",
+              "Simulated emergency SOS protocol"
+            ].map((x, i) => (
+              <motion.div
+                key={x}
+                className="stack-card"
+                initial={{ x: 25, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+              >
+                <span>0{i + 1}</span>
+                {x}
+                <ArrowRight size={16} />
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
+      {/* 5. Live Network Statistics */}
       <section className="stats-section">
         <div className="container">
-          <SectionTitle eyebrow="THE NETWORK" title="A safety picture built from many voices." />
+          <SectionTitle eyebrow="THE NETWORK" title={t("home.networkTitle")} />
           <div className="stats-grid">
             <div>
               <strong>{stats.totalReports}</strong>
-              <span>community reports</span>
+              <span>{t("home.communityReports")}</span>
             </div>
             <div>
               <strong>{stats.verifiedReports}</strong>
-              <span>verified reports</span>
+              <span>{t("home.verifiedReports")}</span>
             </div>
             <div>
               <strong>{stats.activeHotspotsCount}</strong>
-              <span>active SHEQ hotspots</span>
+              <span>{t("home.activeHotspots")}</span>
             </div>
             <div>
               <strong>{stats.totalConfirmations}</strong>
-              <span>community confirmations</span>
+              <span>{t("home.confirmations")}</span>
             </div>
           </div>
         </div>
       </section>
 
+      {/* 6. Clean Bottom Call to Action Box */}
       <section className="cta-section">
         <div className="container cta-box">
           <div>
-            <div className="eyebrow">YOUR EXPERIENCE MATTERS</div>
-            <h2>Seen something others should know?</h2>
-            <p>A quick report can become useful context for someone else.</p>
+            <div className="eyebrow">YOUR OBSERVATION MATTERS</div>
+            <h2>{t("home.ctaBoxTitle")}</h2>
+            <p>{t("home.ctaBoxDesc")}</p>
           </div>
-          <Link to={isAuthenticated ? "/report" : "/login"} className="btn btn-berry">
-            Report an incident <ArrowRight size={18} />
-          </Link>
+          <div>
+            <Link to={isAuthenticated ? "/report" : "/signup"} className="btn btn-berry btn-lg">
+              {isAuthenticated ? "Share a report" : t("home.ctaSignup")} <ArrowRight size={18} />
+            </Link>
+          </div>
         </div>
       </section>
     </>

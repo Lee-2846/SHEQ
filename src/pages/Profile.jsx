@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useSearchParams, useNavigate, Link } from "react-router-dom";
 import {
   UserRound,
@@ -11,16 +11,21 @@ import {
   ShieldCheck,
   CheckCircle2,
   Trash2,
-  Plus
+  Plus,
+  Camera,
+  X
 } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 import { useData } from "../context/DataContext";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Profile() {
   const { user, updateProfile, logout } = useAuth();
+  const { language, setLanguage, t } = useLanguage();
   const { savedPlaces, addSavedPlace, removeSavedPlace, contacts, updateContacts } = useData();
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
+  const fileInputRef = useRef(null);
 
   // Distinct tab concepts
   const activeTab = searchParams.get("tab") || "profile";
@@ -29,8 +34,7 @@ export default function Profile() {
   const [form, setForm] = useState({
     name: user?.name || "Ananya Sharma",
     email: user?.email || "ananya@sheq.app",
-    phone: user?.phone || "+91 98765 43210",
-    language: "English"
+    phone: user?.phone || "+91 98765 43210"
   });
 
   const [newPlaceName, setNewPlaceName] = useState("");
@@ -43,23 +47,59 @@ export default function Profile() {
   const [showAddTrusted, setShowAddTrusted] = useState(false);
 
   const [savedSuccess, setSavedSuccess] = useState(false);
+  const [avatarError, setAvatarError] = useState("");
 
   useEffect(() => {
     if (user) {
       setForm({
         name: user.name || "",
         email: user.email || "",
-        phone: user.phone || "",
-        language: "English"
+        phone: user.phone || ""
       });
     }
   }, [user]);
 
   function handleSaveProfile(e) {
     e.preventDefault();
-    updateProfile(form);
+    updateProfile({ ...form, language });
     setSavedSuccess(true);
-    setTimeout(() => setSavedSuccess(false), 2000);
+    setTimeout(() => setSavedSuccess(false), 2500);
+  }
+
+  // FIX 14: Client-side photo upload with validation
+  function handlePhotoUpload(e) {
+    setAvatarError("");
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    if (!file.type.startsWith("image/")) {
+      setAvatarError("Please select a valid image file (PNG, JPG, WebP).");
+      return;
+    }
+
+    if (file.size > 2 * 1024 * 1024) {
+      setAvatarError("Profile photo size should be under 2MB.");
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      const dataUrl = reader.result;
+      updateProfile({ avatarUrl: dataUrl });
+      setSavedSuccess(true);
+      setTimeout(() => setSavedSuccess(false), 2500);
+    };
+    reader.readAsDataURL(file);
+  }
+
+  function handleRemovePhoto() {
+    setAvatarError("");
+    updateProfile({ avatarUrl: null });
+    if (fileInputRef.current) {
+      fileInputRef.current.value = "";
+    }
+    setSavedSuccess(true);
+    setTimeout(() => setSavedSuccess(false), 2500);
   }
 
   function handleAddPlace(e) {
@@ -68,7 +108,7 @@ export default function Profile() {
     addSavedPlace({
       type: newPlaceType,
       name: newPlaceName.trim(),
-      address: `${newPlaceName.trim()}, Pune`
+      address: `${newPlaceName.trim()}, Mumbai`
     });
     setNewPlaceName("");
     setShowAddPlace(false);
@@ -93,7 +133,7 @@ export default function Profile() {
     setNewTrustedPhone("");
     setShowAddTrusted(false);
     setSavedSuccess(true);
-    setTimeout(() => setSavedSuccess(false), 2000);
+    setTimeout(() => setSavedSuccess(false), 2500);
   }
 
   function handleRemoveTrusted(id) {
@@ -108,9 +148,35 @@ export default function Profile() {
 
   return (
     <div className="container page-container">
+      {/* Hidden File Input for Avatar */}
+      <input
+        ref={fileInputRef}
+        type="file"
+        id="profile-avatar-upload"
+        accept="image/png, image/jpeg, image/webp"
+        onChange={handlePhotoUpload}
+        style={{ display: "none" }}
+      />
+
       {/* Profile Hero Header */}
       <div className="profile-hero">
-        <div className="avatar">{(user?.name || "M").charAt(0).toUpperCase()}</div>
+        <div className="profile-hero-avatar-wrapper">
+          {user?.avatarUrl ? (
+            <img src={user.avatarUrl} alt="Avatar" className="profile-hero-avatar-img" />
+          ) : (
+            <div className="profile-hero-avatar-fallback">
+              {(user?.name || "M").charAt(0).toUpperCase()}
+            </div>
+          )}
+          <label
+            htmlFor="profile-avatar-upload"
+            className="avatar-edit-overlay-btn"
+            title="Upload/change profile photo"
+          >
+            <Camera size={15} />
+          </label>
+        </div>
+
         <div>
           <div className="eyebrow light-eyebrow">ACCOUNT SETTINGS</div>
           <h1>{user?.name || "SHEQ Member"}</h1>
@@ -119,8 +185,14 @@ export default function Profile() {
       </div>
 
       {savedSuccess && (
-        <div className="alert-banner-success">
-          <CheckCircle2 size={16} /> Profile settings saved successfully.
+        <div className="alert-banner-success" style={{ margin: "16px 0" }}>
+          <CheckCircle2 size={16} /> Profile settings updated successfully.
+        </div>
+      )}
+
+      {avatarError && (
+        <div className="form-error" style={{ margin: "12px 0" }}>
+          {avatarError}
         </div>
       )}
 
@@ -178,45 +250,87 @@ export default function Profile() {
             <h3>Manage your account information</h3>
             <p className="card-sub-copy">Your details remain private and are not displayed on anonymous reports.</p>
 
-            <form onSubmit={handleSaveProfile} className="auth-form" style={{ marginTop: "20px" }}>
-              <label>
-                Full Name
+            {/* FIX 14: Profile Photo Box */}
+            <div className="profile-photo-uploader-box">
+              {user?.avatarUrl ? (
+                <img src={user.avatarUrl} alt="Avatar Preview" className="avatar-large-preview" />
+              ) : (
+                <div className="avatar-large-fallback">
+                  {(user?.name || "M").charAt(0).toUpperCase()}
+                </div>
+              )}
+
+              <div className="photo-uploader-actions-side">
+                <strong>Profile Photo</strong>
+                <p>Upload a personal photo for your profile and navbar avatar. Max size 2MB.</p>
+                <div className="photo-action-buttons">
+                  <label htmlFor="profile-avatar-upload" className="btn btn-outline btn-sm" style={{ cursor: "pointer" }}>
+                    <Camera size={14} /> {user?.avatarUrl ? "Change Photo" : "Upload Photo"}
+                  </label>
+                  {user?.avatarUrl && (
+                    <button
+                      type="button"
+                      className="btn btn-outline btn-sm btn-danger-outline"
+                      onClick={handleRemovePhoto}
+                    >
+                      <X size={14} /> Remove Photo
+                    </button>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            <form onSubmit={handleSaveProfile} className="auth-form" style={{ marginTop: "24px" }}>
+              <div className="form-field-label">
+                <label htmlFor="profile-fullname">Full Name</label>
                 <input
+                  id="profile-fullname"
                   type="text"
                   value={form.name}
                   onChange={e => setForm({ ...form, name: e.target.value })}
+                  className="form-input"
                 />
-              </label>
+              </div>
 
-              <label>
-                Email Address
+              <div className="form-field-label">
+                <label htmlFor="profile-email">Email Address</label>
                 <input
+                  id="profile-email"
                   type="email"
                   value={form.email}
                   onChange={e => setForm({ ...form, email: e.target.value })}
+                  className="form-input"
                 />
-              </label>
+              </div>
 
-              <label>
-                Mobile Phone Number
+              <div className="form-field-label">
+                <label htmlFor="profile-phone">Mobile Phone Number</label>
                 <input
+                  id="profile-phone"
                   type="tel"
                   value={form.phone}
                   onChange={e => setForm({ ...form, phone: e.target.value })}
+                  className="form-input"
                 />
-              </label>
+              </div>
 
-              <label>
-                Preferred Language
+              <div className="form-field-label">
+                <label htmlFor="profile-lang">Preferred Language</label>
                 <select
-                  value={form.language}
-                  onChange={e => setForm({ ...form, language: e.target.value })}
+                  id="profile-lang"
+                  value={language}
+                  onChange={e => {
+                    const newLang = e.target.value;
+                    setLanguage(newLang);
+                    updateProfile({ language: newLang });
+                  }}
+                  className="form-input"
                 >
                   <option value="English">English</option>
                   <option value="Marathi">Marathi (मराठी)</option>
                   <option value="Hindi">Hindi (हिंदी)</option>
                 </select>
-              </label>
+              </div>
 
               <button type="submit" className="btn btn-berry">
                 Save Changes
@@ -260,7 +374,7 @@ export default function Profile() {
                 </select>
                 <input
                   type="text"
-                  placeholder="Area / landmark (e.g. Swargate, Baner)"
+                  placeholder="Area / landmark (e.g. Dadar, Bandra, Swargate)"
                   value={newPlaceName}
                   onChange={e => setNewPlaceName(e.target.value)}
                   required

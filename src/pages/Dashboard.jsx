@@ -24,7 +24,7 @@ export default function Dashboard() {
   const [newPlaceName, setNewPlaceName] = useState("");
   const [newPlaceType, setNewPlaceType] = useState("Other");
 
-  const name = user?.name ? user.name.charAt(0).toUpperCase() + user.name.slice(1) : "there";
+  const name = user?.name ? user.name : "Member";
 
   function handleAddPlace(e) {
     e.preventDefault();
@@ -59,7 +59,7 @@ export default function Dashboard() {
       <div className="dashboard-head">
         <div>
           <div className="eyebrow">YOUR SAFETY DASHBOARD</div>
-          <h1>Good evening, {name}.</h1>
+          <h1>Welcome back, {name}.</h1>
           <p>Here’s the community safety picture around your saved places and city.</p>
         </div>
         <div className="dashboard-head-actions">

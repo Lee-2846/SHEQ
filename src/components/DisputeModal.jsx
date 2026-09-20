@@ -1,7 +1,11 @@
 import { useState } from "react";
-import { Flag, X, CheckCircle2 } from "lucide-react";
+import { X, CheckCircle2 } from "lucide-react";
 import { validateDispute } from "../utils/validation";
 
+/**
+ * FIX 17: Redesigned Dispute / Flag Inaccuracy Modal
+ * Matches 2-column header (Title | Explainer), styled select, wide textarea, bottom-right actions.
+ */
 export default function DisputeModal({ isOpen, onClose, reportId, onDisputeSubmitted }) {
   const [form, setForm] = useState({
     reason: "Inaccurate timing",
@@ -29,33 +33,42 @@ export default function DisputeModal({ isOpen, onClose, reportId, onDisputeSubmi
 
   return (
     <div className="modal-backdrop" onClick={onClose} role="dialog" aria-modal="true">
-      <div className="modal-card" onClick={e => e.stopPropagation()}>
-        <button className="modal-close" onClick={onClose} aria-label="Close dispute modal">
-          <X size={20} />
+      <div className="dispute-modal-card" onClick={e => e.stopPropagation()}>
+        <button className="dispute-modal-close" onClick={onClose} aria-label="Close dispute modal">
+          <X size={18} />
         </button>
 
-        <div className="modal-header">
-          <div className="eyebrow">COMMUNITY ACCURACY</div>
-          <h2>Dispute or Flag Inaccuracy</h2>
-          <p>
-            Help keep community data reliable. If any detail in this report is inaccurate or outdated, submit a context note for review.
+        {/* 2-Column Header: Heading left | Explanatory text right */}
+        <div className="dispute-modal-header">
+          <div>
+            <div className="dispute-eyebrow">COMMUNITY ACCURACY</div>
+            <h2 className="dispute-modal-title">Dispute or Flag Inaccuracy</h2>
+          </div>
+          <p className="dispute-modal-explainer">
+            Help keep community data reliable. If any detail in this report is inaccurate or outdated, submit a context note for administrative review.
           </p>
         </div>
 
         {submitted ? (
-          <div className="dispute-success">
-            <CheckCircle2 size={32} className="text-berry" />
-            <h3>Dispute recorded</h3>
-            <p>Thank you. Your note has been logged for community review and moderation.</p>
+          <div className="dispute-success-box">
+            <CheckCircle2 size={36} className="text-berry" style={{ margin: "0 auto 10px" }} />
+            <h3>Dispute Note Logged</h3>
+            <p>Thank you for helping keep community data accurate. A moderator will review your note.</p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="dispute-form">
-            <label htmlFor="dispute-reason">
-              Reason for dispute
+          <form onSubmit={handleSubmit} className="dispute-form-layout" noValidate>
+            <div className="dispute-form-group">
+              <label className="dispute-form-label" htmlFor="dispute-reason">
+                Reason for Dispute
+              </label>
               <select
                 id="dispute-reason"
                 value={form.reason}
-                onChange={e => setForm({ ...form, reason: e.target.value })}
+                onChange={e => {
+                  setForm({ ...form, reason: e.target.value });
+                  if (errors.reason) setErrors({ ...errors, reason: "" });
+                }}
+                className="dispute-select-input"
               >
                 <option value="Inaccurate timing">Inaccurate timing / time window</option>
                 <option value="Incorrect location">Incorrect location or place name</option>
@@ -64,22 +77,28 @@ export default function DisputeModal({ isOpen, onClose, reportId, onDisputeSubmi
                 <option value="Duplicate report">Duplicate report</option>
                 <option value="Other">Other factual discrepancy</option>
               </select>
-              {errors.reason && <small className="field-error">{errors.reason}</small>}
-            </label>
+              {errors.reason && <small className="field-error-text">{errors.reason}</small>}
+            </div>
 
-            <label htmlFor="dispute-details">
-              Explanation & details
+            <div className="dispute-form-group">
+              <label className="dispute-form-label" htmlFor="dispute-details">
+                Explanation & Details
+              </label>
               <textarea
                 id="dispute-details"
-                rows="4"
+                rows={4}
                 value={form.details}
-                onChange={e => setForm({ ...form, details: e.target.value })}
-                placeholder="Explain what information is inaccurate and provide correct context..."
+                onChange={e => {
+                  setForm({ ...form, details: e.target.value });
+                  if (errors.details) setErrors({ ...errors, details: "" });
+                }}
+                placeholder="Explain what information is inaccurate and provide correct context for the community..."
+                className="dispute-textarea-input"
               />
-              {errors.details && <small className="field-error">{errors.details}</small>}
-            </label>
+              {errors.details && <small className="field-error-text">{errors.details}</small>}
+            </div>
 
-            <div className="modal-actions">
+            <div className="dispute-modal-actions">
               <button type="button" className="btn btn-outline" onClick={onClose}>
                 Cancel
               </button>
