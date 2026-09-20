@@ -14,9 +14,10 @@ export function getStatusBadgeClass(status) {
   switch (status) {
     case "Submitted":
       return "badge-status-submitted";
+    case "Under Review":
     case "Under review":
       return "badge-status-review";
-    case "Community verified":
+    case "Verified":
       return "badge-status-verified";
     case "Resolved":
       return "badge-status-resolved";
