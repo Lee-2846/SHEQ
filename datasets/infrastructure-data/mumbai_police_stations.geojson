@@ -1,0 +1,132 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2026-10-18T07:35:06Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "relation/6193455",
+        "amenity": "police",
+        "building": "yes",
+        "type": "multipolygon",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.02991,
+          19.0173404
+        ]
+      },
+      "id": "relation/6193455"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/354016607",
+        "addr:city": "Navi Mumbai",
+        "addr:postcode": "400706",
+        "addr:street": "Adi Shankaracharya Marg",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Nerul Police Station",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0193851,
+          19.0289022
+        ]
+      },
+      "id": "way/354016607"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/558708648",
+        "addr:city": "Navi Mumbai",
+        "addr:postcode": "400706",
+        "addr:street": "Gaimukh Chowk",
+        "amenity": "police",
+        "building": "yes",
+        "level": "1",
+        "name": "Gaimukh Chowk Police Station",
+        "operator": "Navi Mumbai Police",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0159441,
+          19.0150691
+        ]
+      },
+      "id": "way/558708648"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/571433508",
+        "amenity": "police",
+        "building": "yes",
+        "name": "N.R.I Coastal Police Station",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0286809,
+          19.0080211
+        ]
+      },
+      "id": "way/571433508"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1147920085",
+        "addr:postcode": "400614",
+        "addr:street": "Sakharam Patil Marg",
+        "amenity": "police",
+        "check_date": "2025-12-19",
+        "name": "CBD Belapur Police Station",
+        "name:en": "CBD Belapur Police Station",
+        "phone": "02227580255",
+        "source": "Survey",
+        "website": "http://www.mahapolice.gov.in/mahapolice/jsp/temp/newmumbai.jsp",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0412484,
+          19.0253765
+        ]
+      },
+      "id": "way/1147920085"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1311209831",
+        "amenity": "police",
+        "building": "yes",
+        "level": "0",
+        "name": "Seawoods Traffic Police Station",
+        "operator": "Maharashtra Police",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.019855,
+          19.0194324
+        ]
+      },
+      "id": "way/1311209831"
+    }
+  ]
+}

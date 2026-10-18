@@ -1,0 +1,3176 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2026-10-18T07:24:51Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/478508658",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "NRI",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0161522,
+          19.0074117
+        ]
+      },
+      "id": "node/478508658"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1245606520",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "CBD Belapur ST Bus Stop",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0408354,
+          19.0232189
+        ]
+      },
+      "id": "node/1245606520"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1470665016",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "NRI",
+        "operator": "NMMT",
+        "public_transport": "platform",
+        "shelter": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0159579,
+          19.0075876
+        ]
+      },
+      "id": "node/1470665016"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1650221713",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Kendriya Vihar Bus Stop",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0659687,
+          19.0377357
+        ]
+      },
+      "id": "node/1650221713"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2246308909",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Cidco Water Pump",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0496808,
+          19.0227599
+        ]
+      },
+      "id": "node/2246308909"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2945821017",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "local_ref": "21",
+        "name": "Artist Colony Sector 8",
+        "public_transport": "platform",
+        "source": "Survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0432479,
+          19.0353025
+        ]
+      },
+      "id": "node/2945821017"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3388718521",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Cidco Water Pump",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.049691,
+          19.0226511
+        ]
+      },
+      "id": "node/3388718521"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4646678591",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Nilgiri Garden",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0280539,
+          19.0255678
+        ]
+      },
+      "id": "node/4646678591"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4646678593",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "DY Patil Stadium",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0278494,
+          19.0435531
+        ]
+      },
+      "id": "node/4646678593"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4646678802",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Uran Phata",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.02977,
+          19.0342401
+        ]
+      },
+      "id": "node/4646678802"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4646678803",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Tata Press",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0293018,
+          19.0376805
+        ]
+      },
+      "id": "node/4646678803"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4646679793",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Ekta Vihar",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0290678,
+          19.0295558
+        ]
+      },
+      "id": "node/4646679793"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4646680194",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Uran Phata",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0291365,
+          19.0322148
+        ]
+      },
+      "id": "node/4646680194"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4646694203",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Income Tax Colony Highway",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0290976,
+          19.0121738
+        ]
+      },
+      "id": "node/4646694203"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4646706092",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Income Tax Colony",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0284196,
+          19.0192913
+        ]
+      },
+      "id": "node/4646706092"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4646739690",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Belapur West Highway",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0293862,
+          19.0098462
+        ]
+      },
+      "id": "node/4646739690"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4646739892",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Kille Gavthan",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0293851,
+          19.009023
+        ]
+      },
+      "id": "node/4646739892"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4646740091",
+        "highway": "bus_stop",
+        "name:en": "Retibunder (Ulwe)",
+        "operator": "NMMT"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0353497,
+          18.9985407
+        ]
+      },
+      "id": "node/4646740091"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4647870496",
+        "bench": "no",
+        "bin": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Unitech",
+        "operator": "NMMT,BEST",
+        "public_transport": "platform",
+        "shelter": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0359183,
+          19.0272625
+        ]
+      },
+      "id": "node/4647870496"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4647870497",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Vivekanand Nagar",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0441533,
+          19.0241097
+        ]
+      },
+      "id": "node/4647870497"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4647870498",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "RBI Colony (CBD Belapur)",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0519079,
+          19.0233855
+        ]
+      },
+      "id": "node/4647870498"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4647870499",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Bharati Vidyapeeth",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0570635,
+          19.0265647
+        ]
+      },
+      "id": "node/4647870499"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4647870501",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Bharati Vidyapeeth",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0565533,
+          19.0255296
+        ]
+      },
+      "id": "node/4647870501"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4648001191",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Kharghar Railway Station",
+        "operator": "NMMT",
+        "public_transport": "platform",
+        "shelter": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.05934,
+          19.0270232
+        ]
+      },
+      "id": "node/4648001191"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4648050591",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Vivekanand Nagar",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0445184,
+          19.0235186
+        ]
+      },
+      "id": "node/4648050591"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4648050592",
+        "bench": "no",
+        "bin": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Bharati Vidyapeeth",
+        "operator": "NMMT",
+        "public_transport": "platform",
+        "shelter": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0563193,
+          19.0258234
+        ]
+      },
+      "id": "node/4648050592"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4648090893",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "CBD Highway",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.041107,
+          19.0237433
+        ]
+      },
+      "id": "node/4648090893"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4648090896",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Bharati Vidyapeeth",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0566259,
+          19.0265301
+        ]
+      },
+      "id": "node/4648090896"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4648090900",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Nift Bus Stop",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0609615,
+          19.0293768
+        ]
+      },
+      "id": "node/4648090900"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4648099391",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "RBI Colony (CBD Belapur)",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0515538,
+          19.023477
+        ]
+      },
+      "id": "node/4648099391"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4648135689",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "CBD Belapur/Konkan Bhavan",
+        "operator": "NMMT, BEST",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0396783,
+          19.0240617
+        ]
+      },
+      "id": "node/4648135689"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4648212590",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Hiranandani Complex Junction",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0659512,
+          19.031843
+        ]
+      },
+      "id": "node/4648212590"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4648225989",
+        "bench": "yes",
+        "bin": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Kharghar Railway Station",
+        "operator": "NMMT",
+        "public_transport": "platform",
+        "shelter": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0601464,
+          19.0284711
+        ]
+      },
+      "id": "node/4648225989"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4648225990",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Siemens Limited",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0615883,
+          19.0285286
+        ]
+      },
+      "id": "node/4648225990"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4648225991",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Hiranandani Complex Junction",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0652165,
+          19.0319375
+        ]
+      },
+      "id": "node/4648225991"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4648226589",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Sai Swar / Little World",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0641544,
+          19.0302271
+        ]
+      },
+      "id": "node/4648226589"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4648226989",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Sai Swar / Little World",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.06418,
+          19.0304809
+        ]
+      },
+      "id": "node/4648226989"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4648373500",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Cidco Office",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.019361,
+          19.0415133
+        ]
+      },
+      "id": "node/4648373500"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4648373501",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Rajiv Gandhi Bridge",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0191378,
+          19.0440055
+        ]
+      },
+      "id": "node/4648373501"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4648374192",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Shivaji Chowk",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0231477,
+          19.0442487
+        ]
+      },
+      "id": "node/4648374192"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4648374393",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "SIES College",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0222772,
+          19.0427169
+        ]
+      },
+      "id": "node/4648374393"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4648482189",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "SIES College",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0223594,
+          19.0420799
+        ]
+      },
+      "id": "node/4648482189"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4648504491",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Parsik Bank Bus Stop",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0212253,
+          19.0407527
+        ]
+      },
+      "id": "node/4648504491"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4648505092",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Agarwal Trade Centre",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0382699,
+          19.0156445
+        ]
+      },
+      "id": "node/4648505092"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4648505190",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Diwale Koliwada Bus Stop",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.039005,
+          19.0142025
+        ]
+      },
+      "id": "node/4648505190"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4648505191",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Central Bank / Belapur Station (W)",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.040318,
+          19.0179059
+        ]
+      },
+      "id": "node/4648505191"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4648505192",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Belapur Commissioner Office",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.041214,
+          19.019372
+        ]
+      },
+      "id": "node/4648505192"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4648522691",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Belapur Village",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0355243,
+          19.0125994
+        ]
+      },
+      "id": "node/4648522691"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4648572590",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Sai Sangam",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0314079,
+          19.0110969
+        ]
+      },
+      "id": "node/4648572590"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4648573790",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Sai Sangam",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0359194,
+          19.0116192
+        ]
+      },
+      "id": "node/4648573790"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4648582589",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Brahma House",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0316021,
+          19.0104312
+        ]
+      },
+      "id": "node/4648582589"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4648623489",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Datta Prasadik Bhajan Mandal",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0373337,
+          19.0135645
+        ]
+      },
+      "id": "node/4648623489"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4648677492",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "D-Mart Seawoods",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.015854,
+          19.0191046
+        ]
+      },
+      "id": "node/4648677492"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4648683790",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Sanjay Joshi Chowk",
+        "name:en": "Sanjay Joshi Chowk",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0148998,
+          19.02351
+        ]
+      },
+      "id": "node/4648683790"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4648683892",
+        "bench": "yes",
+        "bin": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "no",
+        "name": "Nerul West",
+        "operator": "NMMT",
+        "public_transport": "platform",
+        "shelter": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0170918,
+          19.033945
+        ]
+      },
+      "id": "node/4648683892"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4648683995",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Akshar Residency",
+        "name:en": "Palm Beach Highway",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0117217,
+          19.0110907
+        ]
+      },
+      "id": "node/4648683995"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4648683996",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Sector 48/Petrol Pump",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0131056,
+          19.0123487
+        ]
+      },
+      "id": "node/4648683996"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4648703198",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Darave Village",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0178619,
+          19.026821
+        ]
+      },
+      "id": "node/4648703198"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4648707793",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Ganesh Maidan",
+        "name:en": "Ganesh Maidan",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0122746,
+          19.0181167
+        ]
+      },
+      "id": "node/4648707793"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4648707794",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Kendriya Vihar",
+        "name:en": "Kendriya Vihar",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0143089,
+          19.0199793
+        ]
+      },
+      "id": "node/4648707794"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4648707797",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Shree Ganesh CHS",
+        "name:en": "Ganesh Society (Nerul)",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0164986,
+          19.0281589
+        ]
+      },
+      "id": "node/4648707797"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4648722990",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Seawood Darawe Railway Station",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0194877,
+          19.023677
+        ]
+      },
+      "id": "node/4648722990"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4648746491",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Karave Gaon",
+        "name:en": "Karave Gaon",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.011308,
+          19.0203771
+        ]
+      },
+      "id": "node/4648746491"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4648788190",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Terna Engineering College",
+        "name:en": "Terna Engineering College",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0169642,
+          19.0302588
+        ]
+      },
+      "id": "node/4648788190"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4648808889",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Nerul Gymkhana",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0164574,
+          19.0276662
+        ]
+      },
+      "id": "node/4648808889"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4651809100",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Nerul Village",
+        "name:en": "Nerul Village",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0153027,
+          19.0367315
+        ]
+      },
+      "id": "node/4651809100"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4652120891",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Vidyaprasarak Shikshan Mandal",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0126657,
+          19.0371473
+        ]
+      },
+      "id": "node/4652120891"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4662929497",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Gurudatta Society",
+        "name:en": "Gurudatta Society",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0148761,
+          19.010073
+        ]
+      },
+      "id": "node/4662929497"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4662929701",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Nageshwar Talav",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0187853,
+          19.0242739
+        ]
+      },
+      "id": "node/4662929701"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4662933890",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Sterling College",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0220807,
+          19.0244212
+        ]
+      },
+      "id": "node/4662933890"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4662933891",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Ashtagandha Society",
+        "name:en": "Ashtagandha Society",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.016389,
+          19.0107862
+        ]
+      },
+      "id": "node/4662933891"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4662948489",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Mother Teresa Garden",
+        "name:en": "Mother Teresa Garden",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0229931,
+          19.0285331
+        ]
+      },
+      "id": "node/4662948489"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4662948491",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Sai Krupa Society",
+        "name:en": "Sai Krupa Society",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0160668,
+          19.0093128
+        ]
+      },
+      "id": "node/4662948491"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4662950389",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Nirmala Society Sector 21",
+        "name:en": "Nirmala Society Sector 21",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0217717,
+          19.025536
+        ]
+      },
+      "id": "node/4662950389"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4662960389",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Shivdarshan Society",
+        "name:en": "Shivdarshan Society",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.017874,
+          19.0130928
+        ]
+      },
+      "id": "node/4662960389"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4662975890",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Nerul Railway Station",
+        "name:en": "Nerul Railway Station",
+        "operator": "NMMT",
+        "public_transport": "platform",
+        "shelter": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0196832,
+          19.0341403
+        ]
+      },
+      "id": "node/4662975890"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4662980489",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Saidham Society",
+        "name:en": "Saidham Society",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0148747,
+          19.011622
+        ]
+      },
+      "id": "node/4662980489"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4662988589",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "D Mart / Nerul Sector 21",
+        "name:en": "D Mart / Nerul Sector 21",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0219661,
+          19.0315039
+        ]
+      },
+      "id": "node/4662988589"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4662988590",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Nerul Sector 11/15",
+        "name:en": "Nerul Sector 11/15",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.019853,
+          19.0359395
+        ]
+      },
+      "id": "node/4662988590"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4662990489",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Meenatai Thakre Hospital",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0208409,
+          19.0337412
+        ]
+      },
+      "id": "node/4662990489"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4665109304",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Ganesh Chowk (Nerul-E)",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.017651,
+          19.0440667
+        ]
+      },
+      "id": "node/4665109304"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4665153705",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Swatantryaveer Sawarkar Chowk",
+        "name:en": "Swatantryaveer Sawarkar Chowk",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0146601,
+          19.0436464
+        ]
+      },
+      "id": "node/4665153705"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4665153706",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Sarsole Koliwada",
+        "name:en": "Sarsole Koliwada",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.014306,
+          19.0439156
+        ]
+      },
+      "id": "node/4665153706"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4665153902",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Sarsole Koliwada",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0146821,
+          19.0430206
+        ]
+      },
+      "id": "node/4665153902"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4665153903",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Terna College",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.014598,
+          19.0385081
+        ]
+      },
+      "id": "node/4665153903"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4665153999",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Sarsole Koliwada",
+        "name:en": "Sarsole Koliwada",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0142363,
+          19.0436749
+        ]
+      },
+      "id": "node/4665153999"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4665154197",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Sarsole Depot",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.014709,
+          19.0403055
+        ]
+      },
+      "id": "node/4665154197"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4665154497",
+        "bench": "yes",
+        "bin": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "no",
+        "name": "Nerul Railway Station East",
+        "operator": "NMMT",
+        "public_transport": "platform",
+        "shelter": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0188338,
+          19.032132
+        ]
+      },
+      "id": "node/4665154497"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4665191695",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Terna College",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0145241,
+          19.0383042
+        ]
+      },
+      "id": "node/4665191695"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4665191790",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Ganesh Chowk (Nerul-E)",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0178158,
+          19.0444372
+        ]
+      },
+      "id": "node/4665191790"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4665192293",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Nerul Police Station",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0182867,
+          19.0297772
+        ]
+      },
+      "id": "node/4665192293"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4665230989",
+        "bench": "yes",
+        "bin": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "no",
+        "name": "Nerul Railway Station East",
+        "operator": "NMMT",
+        "public_transport": "platform",
+        "shelter": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0191906,
+          19.0322162
+        ]
+      },
+      "id": "node/4665230989"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4665230990",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Nerul Police Station",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0184986,
+          19.0298582
+        ]
+      },
+      "id": "node/4665230990"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4665317300",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Belapur A-Ward",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0311838,
+          19.014188
+        ]
+      },
+      "id": "node/4665317300"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4665330399",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Belapur Lake",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0321582,
+          19.0132068
+        ]
+      },
+      "id": "node/4665330399"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4665330400",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Vidya Prasarak High School",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0350737,
+          19.0134942
+        ]
+      },
+      "id": "node/4665330400"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4665330401",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Belapur Village",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0349311,
+          19.0125339
+        ]
+      },
+      "id": "node/4665330401"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4665330492",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Peoples Education Primary School",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0447076,
+          19.0295388
+        ]
+      },
+      "id": "node/4665330492"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4665333892",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Bramha House",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0300984,
+          19.0109854
+        ]
+      },
+      "id": "node/4665333892"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4665333896",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Police Aayuktalaya",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0375947,
+          19.0232143
+        ]
+      },
+      "id": "node/4665333896"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4665340191",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Cidco Bhavan / Konkan Bhavan",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0394145,
+          19.0226029
+        ]
+      },
+      "id": "node/4665340191"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4665343393",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Kalpatru Society",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0454695,
+          19.0286577
+        ]
+      },
+      "id": "node/4665343393"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4665371690",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Police Aayuktalaya",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0381603,
+          19.0230556
+        ]
+      },
+      "id": "node/4665371690"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4665413489",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Dr DY Patil College",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.044729,
+          19.0254789
+        ]
+      },
+      "id": "node/4665413489"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4665416490",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Kalpataru Society",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0456321,
+          19.0285598
+        ]
+      },
+      "id": "node/4665416490"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4665416590",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Sahadev Dhyana Center",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.042901,
+          19.0304941
+        ]
+      },
+      "id": "node/4665416590"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4665416591",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Gavaskar Ground Sector-2/3",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0392817,
+          19.0282511
+        ]
+      },
+      "id": "node/4665416591"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4665419289",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Vikasini Society /  Nisarg Friendship Society",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0460972,
+          19.0274417
+        ]
+      },
+      "id": "node/4665419289"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4665419291",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Gavaskar Ground Sector-2/3",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0398356,
+          19.0281989
+        ]
+      },
+      "id": "node/4665419291"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4665460889",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Police Colony",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0383064,
+          19.0273289
+        ]
+      },
+      "id": "node/4665460889"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4665460989",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Police Colony",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0384093,
+          19.0275782
+        ]
+      },
+      "id": "node/4665460989"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4665499391",
+        "highway": "bus_stop",
+        "name:en": "Apna Bazar (Belapur)",
+        "operator": "NMMT"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0433129,
+          19.0333943
+        ]
+      },
+      "id": "node/4665499391"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4665515789",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Arenja Complex",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0433505,
+          19.0314603
+        ]
+      },
+      "id": "node/4665515789"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4665515790",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Arenja Complex",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0432883,
+          19.0313872
+        ]
+      },
+      "id": "node/4665515790"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4665516089",
+        "highway": "bus_stop",
+        "name:en": "Apna Bazar (Belapur)",
+        "operator": "NMMT"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0432678,
+          19.0333525
+        ]
+      },
+      "id": "node/4665516089"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4665647294",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Meridian",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0097661,
+          19.0411208
+        ]
+      },
+      "id": "node/4665647294"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4665684192",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Nerul Sector-2/4",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.011494,
+          19.0439737
+        ]
+      },
+      "id": "node/4665684192"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4665684294",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Deep Sagar Society",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0097301,
+          19.0429616
+        ]
+      },
+      "id": "node/4665684294"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4665684295",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Deep Sagar Society",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0098312,
+          19.0423903
+        ]
+      },
+      "id": "node/4665684295"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4665684392",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Meridian",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0096521,
+          19.041398
+        ]
+      },
+      "id": "node/4665684392"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5411587086",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Palm Beach Highway",
+        "name:en": "Palm Beach Highway",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0119159,
+          19.0101419
+        ]
+      },
+      "id": "node/5411587086"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5501108946",
+        "bench": "yes",
+        "bus": "yes",
+        "departures_board": "realtime",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Seawoods Bus Station",
+        "operator": "NMMT",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0149449,
+          19.0151656
+        ]
+      },
+      "id": "node/5501108946"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5520349112",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "D-Mart Seawoods",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0162069,
+          19.0193582
+        ]
+      },
+      "id": "node/5520349112"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5520349113",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Nakhwa Chowk",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0172118,
+          19.0174061
+        ]
+      },
+      "id": "node/5520349113"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5520349114",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Nakhwa Chowk",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.017193,
+          19.0172961
+        ]
+      },
+      "id": "node/5520349114"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5520349115",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Maharashtra Gyan Maha Mandal",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0170673,
+          19.016674
+        ]
+      },
+      "id": "node/5520349115"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5520349116",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Maharashtra Gyan Maha Mandal",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0166735,
+          19.0160943
+        ]
+      },
+      "id": "node/5520349116"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5520349117",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Sector 48/Petrol Pump",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0131077,
+          19.0125483
+        ]
+      },
+      "id": "node/5520349117"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5520349119",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Seawoods Bus Station",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0149526,
+          19.0156804
+        ]
+      },
+      "id": "node/5520349119"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5520349120",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Karave Smashan Bhoomi",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0134358,
+          19.017064
+        ]
+      },
+      "id": "node/5520349120"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5520349223",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Seawoods Railway Station",
+        "name:en": "Seawoods Railway Station",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0180886,
+          19.0205616
+        ]
+      },
+      "id": "node/5520349223"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5520349224",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Seawoods Railway Station",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0171892,
+          19.0213792
+        ]
+      },
+      "id": "node/5520349224"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5520349225",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Seawoods Railway Station",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.016655,
+          19.0220038
+        ]
+      },
+      "id": "node/5520349225"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5520349226",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Sanjay Joshi Chowk",
+        "name:en": "Sanjay Joshi Chowk",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0151626,
+          19.0233855
+        ]
+      },
+      "id": "node/5520349226"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5520352021",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Akshar Residency",
+        "name:en": "Akshar Residency",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0123526,
+          19.0115554
+        ]
+      },
+      "id": "node/5520352021"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5520352022",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Palm Beach Highway",
+        "name:en": "Palm Beach Highway",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0118435,
+          19.0099366
+        ]
+      },
+      "id": "node/5520352022"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6194544571",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Nerul Station (E)",
+        "operator": "NMMT",
+        "public_transport": "platform",
+        "shelter": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0188412,
+          19.0330489
+        ]
+      },
+      "id": "node/6194544571"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6651081025",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Shivaji Chowk",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0229567,
+          19.044209
+        ]
+      },
+      "id": "node/6651081025"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6655553679",
+        "bench": "yes",
+        "bin": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "no",
+        "name": "Nerul Station West",
+        "operator": "NMMT",
+        "public_transport": "platform",
+        "shelter": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0171942,
+          19.033756
+        ]
+      },
+      "id": "node/6655553679"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6986966478",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Parsik Bank Bus Stop",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0213838,
+          19.040601
+        ]
+      },
+      "id": "node/6986966478"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6986966479",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0203679,
+          19.0399203
+        ]
+      },
+      "id": "node/6986966479"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6986966480",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Balaji Building",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0201153,
+          19.0390704
+        ]
+      },
+      "id": "node/6986966480"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7542027627",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Sterling College",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0226336,
+          19.0240488
+        ]
+      },
+      "id": "node/7542027627"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7728070192",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "D Mart / Nerul Sector 21",
+        "name:en": "D Mart / Nerul Sector 21",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0216566,
+          19.0316759
+        ]
+      },
+      "id": "node/7728070192"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9332158966",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Nerul Station (E)",
+        "operator": "NMMT",
+        "public_transport": "platform",
+        "shelter": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0188118,
+          19.0329043
+        ]
+      },
+      "id": "node/9332158966"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9665403458",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "SBI Colony",
+        "public_transport": "platform",
+        "shelter": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0286049,
+          19.0394005
+        ]
+      },
+      "id": "node/9665403458"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9665403459",
+        "bench": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "SBI Colony",
+        "public_transport": "platform",
+        "shelter": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0289908,
+          19.0394431
+        ]
+      },
+      "id": "node/9665403459"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9665403496",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Kendriya Vihar",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.014424,
+          19.0197452
+        ]
+      },
+      "id": "node/9665403496"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9685181441",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "NMMC",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0251922,
+          19.0089492
+        ]
+      },
+      "id": "node/9685181441"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9685181453",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Kille Gavthan",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.029162,
+          19.0078793
+        ]
+      },
+      "id": "node/9685181453"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9685181454",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "NMMC",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0280225,
+          19.009143
+        ]
+      },
+      "id": "node/9685181454"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9685181455",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Brahma House",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0315589,
+          19.0101677
+        ]
+      },
+      "id": "node/9685181455"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9685181456",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name:en": "Sai Sangam",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0360221,
+          19.0119327
+        ]
+      },
+      "id": "node/9685181456"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9861985267",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Seawoods Railway Station",
+        "name:en": "Seawoods Railway Station",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0184576,
+          19.0203665
+        ]
+      },
+      "id": "node/9861985267"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9897213432",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Kharghar Railway Station",
+        "public_transport": "platform",
+        "shelter": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.058951,
+          19.0264976
+        ]
+      },
+      "id": "node/9897213432"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12133218353",
+        "bench": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Gaimukh Chowk",
+        "operator": "NMMT",
+        "public_transport": "platform",
+        "shelter": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0152313,
+          19.0145457
+        ]
+      },
+      "id": "node/12133218353"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12133218354",
+        "bench": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Gaimukh Chowk",
+        "operator": "NMMT",
+        "public_transport": "platform",
+        "shelter": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.015075,
+          19.0146769
+        ]
+      },
+      "id": "node/12133218354"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12133218355",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Sector 42A",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.015248,
+          19.0154624
+        ]
+      },
+      "id": "node/12133218355"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12133218356",
+        "bench": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Banubai Ganpat Tandel Market",
+        "operator": "NMMT",
+        "public_transport": "platform",
+        "shelter": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.016618,
+          19.0142268
+        ]
+      },
+      "id": "node/12133218356"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12894108480",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Kendriya Vihar",
+        "operator": "NMMT",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.014424,
+          19.0197452
+        ]
+      },
+      "id": "node/12894108480"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13970259220",
+        "bench": "no",
+        "bin": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "CBD Court",
+        "public_transport": "platform",
+        "shelter": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0319224,
+          19.0078665
+        ]
+      },
+      "id": "node/13970259220"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13970269897",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "departures_board": "yes",
+        "highway": "bus_stop",
+        "name": "Jay Tower",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0341366,
+          19.0110751
+        ]
+      },
+      "id": "node/13970269897"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/14026186974",
+        "bench": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Don Bosco School Bus Stop",
+        "public_transport": "platform",
+        "shelter": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0144549,
+          19.0177927
+        ]
+      },
+      "id": "node/14026186974"
+    }
+  ]
+}

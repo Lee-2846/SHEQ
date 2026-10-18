@@ -1,0 +1,68 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2026-10-18T07:38:06Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12235697841",
+        "direction": "224",
+        "height": "15",
+        "highway": "street_lamp",
+        "lamp_mount": "straight_mast",
+        "lamp_type": "led",
+        "loc_name": "NMMC Street Light",
+        "name": "NMMC Street Light",
+        "name:en": "NMMC Street Light",
+        "name:hi": "NMMC Street Light",
+        "name:mr": "NMMC Street Light",
+        "nat_name": "NMMC Street Light",
+        "official_name": "NMMC Street Light",
+        "ref": "NMMC Street Light",
+        "reg_name": "NMMC Street Light",
+        "short_name": "NMMC Street Light",
+        "source": "survey",
+        "support": "pole"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0341478,
+          19.0305533
+        ]
+      },
+      "id": "node/12235697841"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12235697842",
+        "height": "15",
+        "highway": "street_lamp",
+        "lamp_mount": "straight_mast",
+        "lamp_type": "led",
+        "name": "NMMC Street Light",
+        "name:en": "NMMC Street Light",
+        "name:hi": "NMMC Street Light",
+        "name:mr": "NMMC Street Light",
+        "nat_name": "NMMC Street Light",
+        "official_name": "NMMC Street Light",
+        "ref": "NMMC Street Light",
+        "reg_name": "NMMC Street Light",
+        "short_name": "NMMC Street Light",
+        "source": "survey",
+        "support": "pole"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0343081,
+          19.0305581
+        ]
+      },
+      "id": "node/12235697842"
+    }
+  ]
+}

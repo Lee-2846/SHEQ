@@ -1,88 +1,106 @@
 import { createContext, useContext, useState } from "react";
+import { login as apiLogin, signup as apiSignup } from "../services/authService";
 
 const AuthContext = createContext(null);
 const STORAGE_KEY = "sheq_auth_session";
 
-export function AuthProvider({ children }) {
-  const [user, setUser] = useState(() => {
-    try {
-      const saved = localStorage.getItem(STORAGE_KEY) || sessionStorage.getItem(STORAGE_KEY);
-      return saved ? JSON.parse(saved) : null;
-    } catch {
-      return null;
-    }
-  });
+function readSavedSession() {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY) || sessionStorage.getItem(STORAGE_KEY);
+    return saved ? JSON.parse(saved) : null;
+  } catch {
+    return null;
+  }
+}
 
+export function AuthProvider({ children }) {
+  const [user, setUser] = useState(readSavedSession);
   const [pendingSignup, setPendingSignup] = useState(null);
 
-  function loginUser({ emailOrPhone, password, rememberMe = true }) {
-    const isEmail = (emailOrPhone || "").includes("@");
-    const formattedName = isEmail
-      ? emailOrPhone.split("@")[0].charAt(0).toUpperCase() + emailOrPhone.split("@")[0].slice(1)
-      : "Member";
-
-    const sessionUser = {
-      id: 101,
-      name: formattedName || "Ananya Sharma",
-      email: isEmail ? emailOrPhone : "member@sheq.app",
-      phone: isEmail ? "+91 98765 43210" : emailOrPhone,
-      role: "user",
-      joinedDate: "Sep 2026"
-    };
-
-    setUser(sessionUser);
+  function saveSession(sessionUser, rememberMe = true) {
     const storage = rememberMe ? localStorage : sessionStorage;
+    const otherStorage = rememberMe ? sessionStorage : localStorage;
+    otherStorage.removeItem(STORAGE_KEY);
     storage.setItem(STORAGE_KEY, JSON.stringify(sessionUser));
+    setUser(sessionUser);
     return sessionUser;
   }
 
-  function loginAdmin({ email = "admin@sheq.app", key = "admin123", rememberMe = true }) {
+  async function loginUser({ emailOrPhone, identifier, password, rememberMe = true }) {
+    const session = await apiLogin({
+      identifier: identifier || emailOrPhone,
+      password
+    });
+
+    return saveSession({
+      ...session,
+      joinedDate: session.createdAt
+        ? new Date(session.createdAt).toLocaleDateString()
+        : "Member",
+    }, rememberMe);
+  }
+
+  // Supports authenticated backend admin login (when provisioned in DB) with documented demo fallback
+  async function loginAdmin({ email = "admin@sheq.app", key = "admin123", rememberMe = true }) {
+    try {
+      const session = await apiLogin({
+        identifier: email,
+        password: key
+      });
+      if (session && session.role === "admin") {
+        return saveSession({
+          ...session,
+          role: "admin",
+          department: "Safety & Operations",
+          demoOnly: false
+        }, rememberMe);
+      }
+    } catch (err) {
+      console.warn("Backend admin login not established; falling back to demo admin session.", err.message);
+    }
+
     const adminUser = {
       id: 999,
       name: "SHEQ Lead Admin",
       email: email || "admin@sheq.app",
       role: "admin",
-      department: "Safety & Operations"
+      department: "Safety & Operations",
+      demoOnly: true
     };
 
-    setUser(adminUser);
-    const storage = rememberMe ? localStorage : sessionStorage;
-    storage.setItem(STORAGE_KEY, JSON.stringify(adminUser));
-    return adminUser;
+    return saveSession(adminUser, rememberMe);
   }
 
   function startSignup({ name, emailOrPhone, method, password, rememberMe = true }) {
-    setPendingSignup({
-      name,
-      emailOrPhone,
-      method, // "email" | "phone"
-      password,
-      rememberMe
-    });
+    setPendingSignup({ name, emailOrPhone, method, password, rememberMe });
   }
 
-  function verifyOtp(code) {
+  async function verifyOtp(code) {
     if (!pendingSignup) {
       throw new Error("No pending registration found.");
     }
-    // Simulated OTP check: accept any 4-6 digit code or default 123456
-    if (!code || code.trim().length < 4) {
+
+    if (!code || !/^\d{4,6}$/.test(code.trim())) {
       throw new Error("Please enter a valid 4 to 6 digit verification code.");
     }
 
-    const isEmail = pendingSignup.method === "email";
-    const newUser = {
-      id: Date.now(),
-      name: pendingSignup.name || "SHEQ Member",
-      email: isEmail ? pendingSignup.emailOrPhone : "member@sheq.app",
-      phone: !isEmail ? pendingSignup.emailOrPhone : "+91 98765 43210",
-      role: "user",
-      joinedDate: "Today"
-    };
+    // The backend does not send or verify OTPs yet.
+    // Create the account through the API, but do not claim contact verification.
+    const session = await apiSignup({
+      name: pendingSignup.name,
+      emailOrPhone: pendingSignup.emailOrPhone,
+      method: pendingSignup.method,
+      password: pendingSignup.password
+    });
 
-    setUser(newUser);
-    const storage = pendingSignup.rememberMe ? localStorage : sessionStorage;
-    storage.setItem(STORAGE_KEY, JSON.stringify(newUser));
+    const rememberMe = pendingSignup.rememberMe;
+    const newUser = saveSession({
+      ...session,
+      joinedDate: session.createdAt
+        ? new Date(session.createdAt).toLocaleDateString()
+        : "Today"
+    }, rememberMe);
+
     setPendingSignup(null);
     return newUser;
   }
@@ -96,6 +114,7 @@ export function AuthProvider({ children }) {
 
   function updateProfile(updatedFields) {
     setUser(prev => {
+      if (!prev) return prev;
       const next = { ...prev, ...updatedFields };
       if (localStorage.getItem(STORAGE_KEY)) {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(next));

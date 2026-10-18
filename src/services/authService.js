@@ -1,15 +1,36 @@
-const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+import { apiRequest } from "./api";
 
 export async function login(credentials) {
-  await wait(500);
+  const result = await apiRequest("/auth/login", {
+    method: "POST",
+    body: JSON.stringify({
+      identifier: credentials.identifier || credentials.email || credentials.emailOrPhone,
+      password: credentials.password
+    })
+  });
+
   return {
-    id: 101,
-    name: credentials.email.split("@")[0] || "Member",
-    email: credentials.email
+    ...result.user,
+    token: result.token
   };
 }
 
 export async function signup(data) {
-  await wait(650);
-  return { id: Date.now(), name: data.name, email: data.email };
+  const identifier = data.email || data.emailOrPhone || data.identifier;
+  const method = data.method || (identifier?.includes("@") ? "email" : "phone");
+
+  const result = await apiRequest("/auth/signup", {
+    method: "POST",
+    body: JSON.stringify({
+      name: data.name,
+      ...(method === "email" ? { email: identifier } : { phone: identifier }),
+      password: data.password
+    })
+  });
+
+  return {
+    ...result.user,
+    token: result.token,
+    notice: result.notice
+  };
 }

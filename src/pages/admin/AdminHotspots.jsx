@@ -27,11 +27,56 @@ export default function AdminHotspots() {
       <div className="provisional-scoring-banner">
         <Info size={20} className="text-berry" />
         <div>
-          <strong>Provisional Prototype Hotspot Scoring</strong>
+          <strong>Provisional Prototype Hotspot Scoring & ML Evaluation</strong>
           <p>
             The scoring below surfaces Hotspot Candidates based on report count, recency, and community confirmations.
             Scores are provisional prototype signals for administrative review, not scientifically validated risk probabilities.
           </p>
+        </div>
+      </div>
+
+      {/* Machine Learning Model Benchmark Card */}
+      <div className="detail-card" style={{ marginTop: "16px", background: "#fcf8f9", border: "1px solid rgba(108, 47, 65, 0.15)" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "12px" }}>
+          <div>
+            <div className="eyebrow" style={{ color: "var(--berry)" }}>EVALUATION BENCHMARK: MACHINE LEARNING MODEL</div>
+            <h4 style={{ margin: "4px 0" }}>Random Forest Classifier (Scikit-Learn, 100 Trees)</h4>
+            <p className="card-sub-copy" style={{ margin: "2px 0 10px" }}>
+              Trained on <code>SHEQ_dataset2_SYNTHETIC_demo.csv</code> with 80/20 stratified train/test split.
+            </p>
+          </div>
+          <span className="badge badge-category" style={{ fontSize: "11px" }}>
+            scikit-learn 1.9.1 · Seed: 42
+          </span>
+        </div>
+
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(110px, 1fr))", gap: "10px", marginTop: "10px" }}>
+          <div style={{ padding: "8px 12px", background: "#fff", borderRadius: "8px", border: "1px solid var(--line)" }}>
+            <small style={{ color: "var(--muted)", display: "block" }}>Accuracy</small>
+            <strong style={{ fontSize: "16px", color: "var(--berry)" }}>74.00%</strong>
+          </div>
+          <div style={{ padding: "8px 12px", background: "#fff", borderRadius: "8px", border: "1px solid var(--line)" }}>
+            <small style={{ color: "var(--muted)", display: "block" }}>Precision</small>
+            <strong style={{ fontSize: "16px", color: "var(--berry)" }}>63.64%</strong>
+          </div>
+          <div style={{ padding: "8px 12px", background: "#fff", borderRadius: "8px", border: "1px solid var(--line)" }}>
+            <small style={{ color: "var(--muted)", display: "block" }}>Recall</small>
+            <strong style={{ fontSize: "16px", color: "var(--berry)" }}>43.75%</strong>
+          </div>
+          <div style={{ padding: "8px 12px", background: "#fff", borderRadius: "8px", border: "1px solid var(--line)" }}>
+            <small style={{ color: "var(--muted)", display: "block" }}>F1-Score</small>
+            <strong style={{ fontSize: "16px", color: "var(--berry)" }}>51.85%</strong>
+          </div>
+          <div style={{ padding: "8px 12px", background: "#fff", borderRadius: "8px", border: "1px solid var(--line)" }}>
+            <small style={{ color: "var(--muted)", display: "block" }}>ROC-AUC</small>
+            <strong style={{ fontSize: "16px", color: "var(--berry)" }}>0.7509</strong>
+          </div>
+        </div>
+
+        <div style={{ marginTop: "12px", fontSize: "12px", color: "var(--muted)", borderTop: "1px solid var(--line)", paddingTop: "8px" }}>
+          <strong>Top Feature Importances:</strong> Night time incident (19.6%) · Incident hour (18.6%) · Distance to streetlight (14.3%) · Latitude (12.7%) · Longitude (12.4%).
+          <br />
+          <em>Note: Official NCRB tables (TABLE3B13-43) provide city-level aggregates without incident coordinates; operational designation on live community data is strictly administrator-controlled.</em>
         </div>
       </div>
 

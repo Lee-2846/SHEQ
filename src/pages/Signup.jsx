@@ -96,7 +96,7 @@ export default function Signup() {
 
     try {
       await new Promise(r => setTimeout(r, 450));
-      verifyOtp(otpCode || "123456");
+      await verifyOtp(otpCode || "123456");
       navigate("/dashboard");
     } catch (err) {
       setErrors({ otp: err.message || "Invalid verification code." });

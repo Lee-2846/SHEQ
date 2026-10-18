@@ -18,15 +18,47 @@ function MapViewController({ center, zoom }) {
 }
 
 export default function SafetyMap() {
-  const { reports, hotspots } = useData();
+  const { reports, hotspots, infrastructureLayers, loadInfrastructureLayer } = useData();
   const [category, setCategory] = useState("All");
+  const [filterSource, setFilterSource] = useState("all"); // "all" | "live" | "demo"
   const [query, setQuery] = useState("");
   const [mobileTab, setMobileTab] = useState("map"); // "map" | "list"
   const [selectedReportId, setSelectedReportId] = useState(null);
   const [mapCenter, setMapCenter] = useState([19.0760, 72.8777]); // Default: Mumbai, India
   const [mapZoom, setMapZoom] = useState(13);
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const [showPoliceStations, setShowPoliceStations] = useState(false);
+  const [showBusStops, setShowBusStops] = useState(false);
+  const [showStreetlights, setShowStreetlights] = useState(false);
+  const [layerLoading, setLayerLoading] = useState("");
   const searchContainerRef = useRef(null);
+
+  async function togglePoliceStations() {
+    if (!showPoliceStations && !infrastructureLayers?.policeStations) {
+      setLayerLoading("policeStations");
+      await loadInfrastructureLayer("policeStations");
+      setLayerLoading("");
+    }
+    setShowPoliceStations(prev => !prev);
+  }
+
+  async function toggleBusStops() {
+    if (!showBusStops && !infrastructureLayers?.busStops) {
+      setLayerLoading("busStops");
+      await loadInfrastructureLayer("busStops");
+      setLayerLoading("");
+    }
+    setShowBusStops(prev => !prev);
+  }
+
+  async function toggleStreetlights() {
+    if (!showStreetlights && !infrastructureLayers?.streetlights) {
+      setLayerLoading("streetlights");
+      await loadInfrastructureLayer("streetlights");
+      setLayerLoading("");
+    }
+    setShowStreetlights(prev => !prev);
+  }
 
   // Close suggestions dropdown when clicking outside
   useEffect(() => {
@@ -39,10 +71,14 @@ export default function SafetyMap() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Filter reports by category and text search
+  // Filter reports by category, source type, and text search
   const filteredReports = useMemo(() => {
     return reports.filter(r => {
       const matchesCategory = category === "All" || r.category === category;
+      const matchesSource =
+        filterSource === "all" ||
+        (filterSource === "live" && r.isLive) ||
+        (filterSource === "demo" && r.isDemo);
       const q = query.toLowerCase().trim();
       const matchesQuery =
         !q ||
@@ -50,9 +86,9 @@ export default function SafetyMap() {
         (r.city && r.city.toLowerCase().includes(q)) ||
         (r.category && r.category.toLowerCase().includes(q)) ||
         (r.description && r.description.toLowerCase().includes(q));
-      return matchesCategory && matchesQuery;
+      return matchesCategory && matchesSource && matchesQuery;
     });
-  }, [reports, category, query]);
+  }, [reports, category, filterSource, query]);
 
   // Dynamic location suggestions matching query
   const suggestions = useMemo(() => {
@@ -292,6 +328,96 @@ export default function SafetyMap() {
             </div>
           </div>
 
+          {/* Signal Origin & Context Filter */}
+          <div style={{ marginBottom: "14px" }}>
+            <div className="filter-label" style={{ marginBottom: "6px" }}>
+              Signal Origin & Authenticity
+            </div>
+            <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}>
+              <button
+                type="button"
+                className={`filter-chip ${filterSource === "all" ? "selected" : ""}`}
+                style={{ fontSize: "11px", padding: "4px 10px" }}
+                onClick={() => setFilterSource("all")}
+              >
+                All Signals ({reports.length})
+              </button>
+              <button
+                type="button"
+                className={`filter-chip ${filterSource === "live" ? "selected" : ""}`}
+                style={{ fontSize: "11px", padding: "4px 10px", borderColor: filterSource === "live" ? "#1e7e34" : undefined }}
+                onClick={() => setFilterSource("live")}
+              >
+                Live Reports ({reports.filter(r => r.isLive).length})
+              </button>
+              <button
+                type="button"
+                className={`filter-chip ${filterSource === "demo" ? "selected" : ""}`}
+                style={{ fontSize: "11px", padding: "4px 10px" }}
+                onClick={() => setFilterSource("demo")}
+              >
+                Curated Demo ({reports.filter(r => r.isDemo).length})
+              </button>
+            </div>
+          </div>
+
+          {/* Infrastructure Context Layers */}
+          <div style={{ marginBottom: "16px", padding: "10px", background: "var(--ivory)", borderRadius: "8px", border: "1px solid var(--line)" }}>
+            <span style={{ fontSize: "11px", fontWeight: 700, color: "var(--berry)", textTransform: "uppercase", letterSpacing: "0.08em", display: "block", marginBottom: "6px" }}>
+              Infrastructure Context Layers (OSM)
+            </span>
+            <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}>
+              <button
+                type="button"
+                className={`filter-chip ${showPoliceStations ? "selected" : ""}`}
+                style={{
+                  fontSize: "11px",
+                  padding: "4px 8px",
+                  borderColor: showPoliceStations ? "#1e40af" : "var(--line)",
+                  background: showPoliceStations ? "#dbeafe" : "#fff",
+                  color: showPoliceStations ? "#1e40af" : "inherit"
+                }}
+                onClick={togglePoliceStations}
+                disabled={layerLoading === "policeStations"}
+              >
+                {layerLoading === "policeStations" ? "Loading..." : "Police Stations (175)"}
+              </button>
+              <button
+                type="button"
+                className={`filter-chip ${showBusStops ? "selected" : ""}`}
+                style={{
+                  fontSize: "11px",
+                  padding: "4px 8px",
+                  borderColor: showBusStops ? "#065f46" : "var(--line)",
+                  background: showBusStops ? "#d1fae5" : "#fff",
+                  color: showBusStops ? "#065f46" : "inherit"
+                }}
+                onClick={toggleBusStops}
+                disabled={layerLoading === "busStops"}
+              >
+                {layerLoading === "busStops" ? "Loading..." : "Bus Stops (163)"}
+              </button>
+              <button
+                type="button"
+                className={`filter-chip ${showStreetlights ? "selected" : ""}`}
+                style={{
+                  fontSize: "11px",
+                  padding: "4px 8px",
+                  borderColor: showStreetlights ? "#b45309" : "var(--line)",
+                  background: showStreetlights ? "#fef3c7" : "#fff",
+                  color: showStreetlights ? "#b45309" : "inherit"
+                }}
+                onClick={toggleStreetlights}
+                disabled={layerLoading === "streetlights"}
+              >
+                {layerLoading === "streetlights" ? "Loading..." : "Streetlights (673)"}
+              </button>
+            </div>
+            <small style={{ fontSize: "10px", color: "var(--muted)", display: "block", marginTop: "4px" }}>
+              Open spatial context layers — not community crime reports.
+            </small>
+          </div>
+
           <div className="filter-label">
             <Filter size={15} /> Filter by category
           </div>
@@ -343,6 +469,11 @@ export default function SafetyMap() {
                       <strong>{r.place}</strong>
                       <div className="map-report-meta">
                         <span className="badge badge-category">{r.category}</span>
+                        {r.isLive ? (
+                          <span className="badge badge-status-verified" style={{ fontSize: "10px", padding: "1px 5px" }}>Live</span>
+                        ) : (
+                          <span className="badge" style={{ fontSize: "10px", padding: "1px 5px", background: "#f3f4f6", color: "#6b7280" }}>Demo</span>
+                        )}
                         {r.signal && (
                           <span className={`badge ${getSignalBadgeClass(r.signal)}`}>
                             {r.signal}
@@ -405,7 +536,14 @@ export default function SafetyMap() {
                   >
                     <Popup className="sheq-map-popup">
                       <div className="popup-inner">
-                        <span className="badge badge-category">{r.category}</span>
+                        <div style={{ display: "flex", gap: "6px", alignItems: "center", marginBottom: "6px" }}>
+                          <span className="badge badge-category">{r.category}</span>
+                          {r.isLive ? (
+                            <span className="badge badge-status-verified" style={{ fontSize: "10px" }}>Live Report</span>
+                          ) : (
+                            <span className="badge" style={{ fontSize: "10px", background: "#f3f4f6", color: "#6b7280" }}>Demo Record</span>
+                          )}
+                        </div>
                         <strong>{r.place}</strong>
                         <p>{r.description}</p>
                         <div className="popup-meta">
@@ -451,12 +589,119 @@ export default function SafetyMap() {
                   </Popup>
                 </CircleMarker>
               ))}
+
+            {/* Render Police Stations Infrastructure Layer (175 points) */}
+            {showPoliceStations && (infrastructureLayers?.policeStations || []).map((feat, idx) => {
+              const coords = feat.geometry?.coordinates;
+              if (!coords || coords.length < 2) return null;
+              const [lng, lat] = coords;
+              const name = feat.properties?.name || feat.properties?.["name:en"] || "Police Station Node";
+              return (
+                <CircleMarker
+                  key={`ps-${idx}`}
+                  center={[lat, lng]}
+                  radius={7}
+                  pathOptions={{
+                    color: "#1e40af",
+                    fillColor: "#3b82f6",
+                    fillOpacity: 0.85,
+                    weight: 2
+                  }}
+                >
+                  <Popup className="sheq-map-popup">
+                    <div className="popup-inner">
+                      <span className="badge" style={{ background: "#dbeafe", color: "#1e40af", fontSize: "10px", fontWeight: 700 }}>
+                        POLICE INFRASTRUCTURE (OSM)
+                      </span>
+                      <strong style={{ display: "block", marginTop: "4px" }}>{name}</strong>
+                      <small style={{ color: "var(--muted)", display: "block", margin: "4px 0" }}>
+                        Location: [{lat.toFixed(4)}, {lng.toFixed(4)}]
+                      </small>
+                      <p style={{ fontSize: "11px", color: "var(--muted)", margin: "4px 0 0" }}>
+                        Open geospatial infrastructure node. Not a crime report or emergency dispatch endpoint.
+                      </p>
+                    </div>
+                  </Popup>
+                </CircleMarker>
+              );
+            })}
+
+            {/* Render Bus Transit Stops Infrastructure Layer (163 points) */}
+            {showBusStops && (infrastructureLayers?.busStops || []).map((feat, idx) => {
+              const coords = feat.geometry?.coordinates;
+              if (!coords || coords.length < 2) return null;
+              const [lng, lat] = coords;
+              const name = feat.properties?.name || feat.properties?.["name:en"] || "Bus Transit Stop";
+              const op = feat.properties?.operator || "Public Transport";
+              return (
+                <CircleMarker
+                  key={`bs-${idx}`}
+                  center={[lat, lng]}
+                  radius={6}
+                  pathOptions={{
+                    color: "#065f46",
+                    fillColor: "#10b981",
+                    fillOpacity: 0.85,
+                    weight: 2
+                  }}
+                >
+                  <Popup className="sheq-map-popup">
+                    <div className="popup-inner">
+                      <span className="badge" style={{ background: "#d1fae5", color: "#065f46", fontSize: "10px", fontWeight: 700 }}>
+                        TRANSIT BUS STOP (OSM)
+                      </span>
+                      <strong style={{ display: "block", marginTop: "4px" }}>{name}</strong>
+                      <small style={{ color: "var(--muted)", display: "block", margin: "2px 0" }}>
+                        Operator: {op}
+                      </small>
+                      <p style={{ fontSize: "11px", color: "var(--muted)", margin: "4px 0 0" }}>
+                        Open transit access node. Provides commuter and pedestrian context.
+                      </p>
+                    </div>
+                  </Popup>
+                </CircleMarker>
+              );
+            })}
+
+            {/* Render Streetlights Infrastructure Layer (673 points) */}
+            {showStreetlights && (infrastructureLayers?.streetlights || []).slice(0, 350).map((feat, idx) => {
+              const coords = feat.geometry?.coordinates;
+              if (!coords || coords.length < 2) return null;
+              const [lng, lat] = coords;
+              return (
+                <CircleMarker
+                  key={`sl-${idx}`}
+                  center={[lat, lng]}
+                  radius={4}
+                  pathOptions={{
+                    color: "#b45309",
+                    fillColor: "#f59e0b",
+                    fillOpacity: 0.75,
+                    weight: 1.5
+                  }}
+                >
+                  <Popup className="sheq-map-popup">
+                    <div className="popup-inner">
+                      <span className="badge" style={{ background: "#fef3c7", color: "#b45309", fontSize: "10px", fontWeight: 700 }}>
+                        STREETLIGHT NODE (OSM)
+                      </span>
+                      <small style={{ color: "var(--muted)", display: "block", margin: "4px 0" }}>
+                        Location: [{lat.toFixed(4)}, {lng.toFixed(4)}]
+                      </small>
+                      <p style={{ fontSize: "11px", color: "var(--muted)", margin: "4px 0 0" }}>
+                        Mapped lighting infrastructure node. Does not verify bulb operational status.
+                      </p>
+                    </div>
+                  </Popup>
+                </CircleMarker>
+              );
+            })}
           </MapContainer>
 
           {/* Map Legend */}
           <div className="map-legend">
             <div>
-              <span className="legend-dot standard" /> Standard report
+              <span className="legend-dot standard" /> Community report
             </div>
             <div>
               <span className="legend-dot elevated" /> Elevated concern
@@ -464,6 +709,21 @@ export default function SafetyMap() {
             <div>
               <span className="legend-dot hotspot" /> SHEQ Hotspot
             </div>
+            {showPoliceStations && (
+              <div>
+                <span className="legend-dot" style={{ background: "#3b82f6", borderColor: "#1e40af" }} /> Police Station (175)
+              </div>
+            )}
+            {showBusStops && (
+              <div>
+                <span className="legend-dot" style={{ background: "#10b981", borderColor: "#065f46" }} /> Bus Stop (163)
+              </div>
+            )}
+            {showStreetlights && (
+              <div>
+                <span className="legend-dot" style={{ background: "#f59e0b", borderColor: "#b45309" }} /> Streetlight (673)
+              </div>
+            )}
           </div>
         </div>
       </div>

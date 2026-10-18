@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   ArrowLeft,
   CheckCircle2,
@@ -12,6 +12,7 @@ import StatusStepper from "../components/StatusStepper";
 import DisputeModal from "../components/DisputeModal";
 import { useData } from "../context/DataContext";
 import { useAuth } from "../context/AuthContext";
+import { fetchReportComments } from "../services/reportService";
 
 export default function IncidentDetails() {
   const { id } = useParams();
@@ -23,6 +24,17 @@ export default function IncidentDetails() {
   const [confirmed, setConfirmed] = useState(false);
   const [disputeModalOpen, setDisputeModalOpen] = useState(false);
   const [commentText, setCommentText] = useState("");
+  const [serverComments, setServerComments] = useState([]);
+
+  useEffect(() => {
+    if (id && id.length === 24) {
+      fetchReportComments(id)
+        .then(res => {
+          if (Array.isArray(res)) setServerComments(res);
+        })
+        .catch(() => {});
+    }
+  }, [id]);
 
   if (!report) {
     return (
@@ -159,12 +171,34 @@ export default function IncidentDetails() {
             </form>
 
             <div className="comments-list">
-              {(!report.comments || report.comments.length === 0) ? (
-                <div className="empty-comments-note">
-                  No additional context notes yet. Be the first to share an update.
-                </div>
-              ) : (
-                report.comments.map(c => (
+              {(() => {
+                const allComments = [
+                  ...(report.comments || []),
+                  ...serverComments.map(sc => ({
+                    id: String(sc._id || sc.id),
+                    author: "SHEQ Member",
+                    time: new Date(sc.createdAt).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+                    text: sc.text
+                  }))
+                ];
+                // Deduplicate by text/id
+                const seen = new Set();
+                const uniqueComments = allComments.filter(c => {
+                  const key = `${c.id}-${c.text}`;
+                  if (seen.has(key)) return false;
+                  seen.add(key);
+                  return true;
+                });
+
+                if (uniqueComments.length === 0) {
+                  return (
+                    <div className="empty-comments-note">
+                      No additional context notes yet. Be the first to share an update.
+                    </div>
+                  );
+                }
+
+                return uniqueComments.map(c => (
                   <div key={c.id} className="comment-item">
                     <div className="comment-top">
                       <strong>{c.author}</strong>
@@ -172,8 +206,8 @@ export default function IncidentDetails() {
                     </div>
                     <p>{c.text}</p>
                   </div>
-                ))
-              )}
+                ));
+              })()}
             </div>
 
             {/* Display Dispute Notes if any */}

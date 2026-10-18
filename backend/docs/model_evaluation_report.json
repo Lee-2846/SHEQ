@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "evaluation_date": "2026-10-18T18:29:40.148961",
+    "dataset_used": "SHEQ_dataset2_SYNTHETIC_demo.csv (500 records)",
+    "data_provenance": "Synthetic demonstration dataset exclusively. Real NCRB records are city aggregates.",
+    "task": "Provisional Hotspot Candidate Priority Classification",
+    "train_test_split": "80% train (400 samples), 20% test (101 samples), stratified",
+    "random_seed": 42
+  },
+  "random_forest_metrics": {
+    "accuracy": 0.74,
+    "precision": 0.6364,
+    "recall": 0.4375,
+    "f1_score": 0.5185,
+    "roc_auc": 0.7509,
+    "cv_5fold_roc_auc_mean": 0.6838,
+    "cv_5fold_roc_auc_std": 0.0471,
+    "confusion_matrix": {
+      "true_negatives": 60,
+      "false_positives": 8,
+      "false_negatives": 18,
+      "true_positives": 14
+    },
+    "top_features": [
+      {
+        "feature": "is_night",
+        "importance": 0.1962
+      },
+      {
+        "feature": "hour",
+        "importance": 0.1856
+      },
+      {
+        "feature": "dist_nearest_streetlight_km",
+        "importance": 0.1425
+      },
+      {
+        "feature": "latitude",
+        "importance": 0.1267
+      },
+      {
+        "feature": "longitude",
+        "importance": 0.1242
+      },
+      {
+        "feature": "dist_nearest_police_km",
+        "importance": 0.0968
+      }
+    ]
+  },
+  "logistic_regression_baseline": {
+    "accuracy": 0.78,
+    "f1_score": 0.6207,
+    "roc_auc": 0.7661
+  },
+  "honest_ml_limitations": [
+    "Trained on synthetic demonstration coordinates; do not interpret accuracy as real-world crime prediction.",
+    "Official NCRB Table 3B data lacks incident coordinates and cannot be substituted for micro-level training.",
+    "Production designation MUST remain admin-controlled and human-reviewed.",
+    "Real deployment requires time-separated validation on legally usable, geocoded historical data."
+  ]
+}

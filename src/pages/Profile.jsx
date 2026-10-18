@@ -18,6 +18,7 @@ import {
 import { useAuth } from "../context/AuthContext";
 import { useData } from "../context/DataContext";
 import { useLanguage } from "../context/LanguageContext";
+import { checkIdentityStatusApi, runDemoVerificationApi } from "../services/dataServices";
 
 export default function Profile() {
   const { user, updateProfile, logout } = useAuth();
@@ -48,6 +49,34 @@ export default function Profile() {
 
   const [savedSuccess, setSavedSuccess] = useState(false);
   const [avatarError, setAvatarError] = useState("");
+  const [identityStatusData, setIdentityStatusData] = useState(null);
+  const [identityLoading, setIdentityLoading] = useState(false);
+  const [demoVerifyNotice, setDemoVerifyNotice] = useState("");
+
+  async function handleCheckIdentityStatus() {
+    setIdentityLoading(true);
+    setDemoVerifyNotice("");
+    try {
+      const data = await checkIdentityStatusApi();
+      setIdentityStatusData(data);
+    } catch (err) {
+      setIdentityStatusData({ error: err.message });
+    } finally {
+      setIdentityLoading(false);
+    }
+  }
+
+  async function handleRunDemoVerification() {
+    setIdentityLoading(true);
+    try {
+      const result = await runDemoVerificationApi();
+      setDemoVerifyNotice(result.notice || "Demo sandbox flow exercised successfully.");
+    } catch (err) {
+      setDemoVerifyNotice("Simulation failed: " + err.message);
+    } finally {
+      setIdentityLoading(false);
+    }
+  }
 
   useEffect(() => {
     if (user) {
@@ -57,6 +86,7 @@ export default function Profile() {
         phone: user.phone || ""
       });
     }
+    handleCheckIdentityStatus();
   }, [user]);
 
   function handleSaveProfile(e) {
@@ -180,7 +210,32 @@ export default function Profile() {
         <div>
           <div className="eyebrow light-eyebrow">ACCOUNT SETTINGS</div>
           <h1>{user?.name || "SHEQ Member"}</h1>
-          <p>{user?.email || user?.phone || "member@sheq.app"} · Member since Sep 2026</p>
+          <div style={{ display: "flex", alignItems: "center", gap: "10px", flexWrap: "wrap", margin: "4px 0 0" }}>
+            <p style={{ margin: 0 }}>{user?.email || user?.phone || "member@sheq.app"} · Member since Sep 2026</p>
+            <span
+              className={`badge ${
+                (identityStatusData?.verificationStatus || user?.verificationStatus) === "verified"
+                  ? "badge-status-verified"
+                  : (identityStatusData?.verificationStatus || user?.verificationStatus) === "pending"
+                  ? "badge-status-under-review"
+                  : (identityStatusData?.verificationStatus || user?.verificationStatus) === "failed"
+                  ? "badge-status-flagged"
+                  : "badge-status-submitted"
+              }`}
+              style={{ cursor: "pointer", display: "inline-flex", alignItems: "center", gap: "4px" }}
+              onClick={() => setTab("identity")}
+              title="Click to view Aadhaar & Identity verification details"
+            >
+              <ShieldCheck size={12} />
+              {(identityStatusData?.verificationStatus || user?.verificationStatus) === "verified"
+                ? "Aadhaar Verified"
+                : (identityStatusData?.verificationStatus || user?.verificationStatus) === "pending"
+                ? "Verification Pending"
+                : (identityStatusData?.verificationStatus || user?.verificationStatus) === "failed"
+                ? "Verification Failed"
+                : "Aadhaar: Unverified"}
+            </span>
+          </div>
         </div>
       </div>
 
@@ -232,6 +287,13 @@ export default function Profile() {
           onClick={() => setTab("notifications")}
         >
           <Bell size={15} /> Notification Settings
+        </button>
+        <button
+          type="button"
+          className={`tab-link ${activeTab === "identity" ? "active" : ""}`}
+          onClick={() => setTab("identity")}
+        >
+          <ShieldCheck size={15} /> Aadhaar & Identity
         </button>
         <button
           type="button"
@@ -555,7 +617,148 @@ export default function Profile() {
           </div>
         )}
 
-        {/* 6. PRIVACY & SECURITY TAB */}
+        {/* 6. AADHAAR & IDENTITY VERIFICATION TAB */}
+        {activeTab === "identity" && (
+          <div className="detail-card">
+            <div className="eyebrow">IDENTITY AUTHENTICATION & VERIFICATION</div>
+            <h3>Government Identity Verification (Aadhaar & eKYC Boundary)</h3>
+            <p className="card-sub-copy">
+              SHEQ strictly separates regular platform login authentication from statutory government identity verification.
+              In accordance with UIDAI regulations and the Aadhaar Act (2016), SHEQ practices strict data minimization and
+              never collects, stores, or logs raw 12-digit Aadhaar numbers or biometric credentials.
+            </p>
+
+            {/* 4 Truthful Verification States Overview */}
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "12px", margin: "20px 0" }}>
+              <div style={{ padding: "14px", background: "#fff", borderRadius: "8px", border: "1px solid var(--line)", borderLeft: (identityStatusData?.verificationStatus || user?.verificationStatus) === "unverified" ? "4px solid var(--berry)" : "1px solid var(--line)" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                  <span className="badge badge-status-submitted">unverified</span>
+                  {(identityStatusData?.verificationStatus || user?.verificationStatus) === "unverified" && (
+                    <small style={{ color: "var(--berry)", fontWeight: 700 }}>CURRENT</small>
+                  )}
+                </div>
+                <h5 style={{ margin: "8px 0 4px" }}>Standard Account</h5>
+                <p style={{ fontSize: "12px", color: "var(--muted)", margin: 0 }}>
+                  Standard SHEQ user. Can submit reports, post comments, and navigate the Safety Map.
+                </p>
+              </div>
+
+              <div style={{ padding: "14px", background: "#fff", borderRadius: "8px", border: "1px solid var(--line)", borderLeft: (identityStatusData?.verificationStatus || user?.verificationStatus) === "pending" ? "4px solid #a35817" : "1px solid var(--line)" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                  <span className="badge badge-status-under-review">pending</span>
+                  {(identityStatusData?.verificationStatus || user?.verificationStatus) === "pending" && (
+                    <small style={{ color: "#a35817", fontWeight: 700 }}>CURRENT</small>
+                  )}
+                </div>
+                <h5 style={{ margin: "8px 0 4px" }}>Verification In Progress</h5>
+                <p style={{ fontSize: "12px", color: "var(--muted)", margin: 0 }}>
+                  Awaiting asynchronous response or documentation verification from authorized agency.
+                </p>
+              </div>
+
+              <div style={{ padding: "14px", background: "#fff", borderRadius: "8px", border: "1px solid var(--line)", borderLeft: (identityStatusData?.verificationStatus || user?.verificationStatus) === "verified" ? "4px solid #1e7e34" : "1px solid var(--line)" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                  <span className="badge badge-status-verified">verified</span>
+                  {(identityStatusData?.verificationStatus || user?.verificationStatus) === "verified" && (
+                    <small style={{ color: "#1e7e34", fontWeight: 700 }}>CURRENT</small>
+                  )}
+                </div>
+                <h5 style={{ margin: "8px 0 4px" }}>Aadhaar eKYC Verified</h5>
+                <p style={{ fontSize: "12px", color: "var(--muted)", margin: 0 }}>
+                  Identity confirmed through authorized UIDAI ASA/KUA gateway.
+                </p>
+              </div>
+
+              <div style={{ padding: "14px", background: "#fff", borderRadius: "8px", border: "1px solid var(--line)", borderLeft: (identityStatusData?.verificationStatus || user?.verificationStatus) === "failed" ? "4px solid #c83e4d" : "1px solid var(--line)" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                  <span className="badge badge-status-flagged">failed</span>
+                  {(identityStatusData?.verificationStatus || user?.verificationStatus) === "failed" && (
+                    <small style={{ color: "#c83e4d", fontWeight: 700 }}>CURRENT</small>
+                  )}
+                </div>
+                <h5 style={{ margin: "8px 0 4px" }}>Verification Failed</h5>
+                <p style={{ fontSize: "12px", color: "var(--muted)", margin: 0 }}>
+                  Authentication unsuccessful or session expired. Retry required.
+                </p>
+              </div>
+            </div>
+
+            {/* Provider Boundary Details */}
+            <div className="detail-card" style={{ background: "var(--ivory)", border: "1px solid var(--line)", marginTop: "16px" }}>
+              <div className="eyebrow">PROVIDER INTEGRATION BOUNDARY</div>
+              <h4 style={{ margin: "4px 0 8px" }}>Live Backend Provider Status</h4>
+              <p className="card-sub-copy" style={{ marginBottom: "12px" }}>
+                SHEQ implements an explicit architectural boundary. Genuine government identity verification cannot be simulated;
+                it legally requires an active, registered integration with an authorized gateway.
+              </p>
+
+              <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", marginTop: "12px" }}>
+                <button
+                  type="button"
+                  className="btn btn-berry btn-sm"
+                  onClick={handleCheckIdentityStatus}
+                  disabled={identityLoading}
+                >
+                  <ShieldCheck size={14} /> {identityLoading ? "Querying Backend..." : "Query Provider Boundary (/api/auth/identity/status)"}
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-outline btn-sm"
+                  onClick={handleRunDemoVerification}
+                  disabled={identityLoading}
+                >
+                  Test Demo Sandbox Flow (Simulation Only — Does Not Mark Verified)
+                </button>
+              </div>
+
+              {identityStatusData && (
+                <div style={{ marginTop: "16px", padding: "14px", background: "#fff", borderRadius: "8px", border: "1px solid var(--line)", fontSize: "13px" }}>
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px", marginBottom: "10px" }}>
+                    <div>
+                      <strong>Backend Provider Status:</strong>{" "}
+                      <span className={identityStatusData.providerConfigured ? "text-success" : "text-muted"}>
+                        {identityStatusData.providerConfigured ? "Configured & Active" : "Disabled (Safe Integration Boundary)"}
+                      </span>
+                    </div>
+                    <div>
+                      <strong>Registered Gateway:</strong> {identityStatusData.provider || "None (disabled)"}
+                    </div>
+                    <div>
+                      <strong>Account Verification State:</strong>{" "}
+                      <span className="badge badge-status-submitted" style={{ marginLeft: "4px" }}>
+                        {identityStatusData.verificationStatus || user?.verificationStatus || "unverified"}
+                      </span>
+                    </div>
+                    <div>
+                      <strong>Seam Mode:</strong> {identityStatusData.mode || "integration-seam-demo-boundary"}
+                    </div>
+                  </div>
+
+                  {identityStatusData.requirements && (
+                    <div style={{ marginTop: "10px", borderTop: "1px solid var(--line)", paddingTop: "10px" }}>
+                      <strong style={{ fontSize: "12px", color: "var(--berry)" }}>
+                        Mandatory Requirements for Live UIDAI / eKYC Connection:
+                      </strong>
+                      <ul style={{ margin: "6px 0 0 18px", padding: 0, fontSize: "12px", color: "var(--muted)", lineHeight: 1.5 }}>
+                        {identityStatusData.requirements.map((r, i) => (
+                          <li key={i}>{r}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {demoVerifyNotice && (
+                <div className="alert-banner-success" style={{ marginTop: "12px" }}>
+                  <CheckCircle2 size={16} /> {demoVerifyNotice}
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
+        {/* 7. PRIVACY & SECURITY TAB */}
         {activeTab === "privacy" && (
           <div className="detail-card">
             <div className="eyebrow">PRIVACY & SECURITY</div>
@@ -570,6 +773,70 @@ export default function Profile() {
                   be visible to other members on the Safety Map or Incident Details.
                 </p>
               </div>
+            </div>
+
+            {/* Aadhaar & Identity Provider Integration Status */}
+            <div className="detail-card" style={{ marginTop: "24px", background: "var(--ivory)", border: "1px solid var(--line)" }}>
+              <div className="eyebrow">IDENTITY VERIFICATION (AADHAAR & eKYC BOUNDARY)</div>
+              <h4 style={{ margin: "4px 0 10px" }}>Account Verification Status</h4>
+              <p className="card-sub-copy" style={{ marginBottom: "16px" }}>
+                SHEQ separates regular account authentication from government identity verification. Under UIDAI regulations
+                and the Information Technology Act, SHEQ does <strong>not</strong> directly collect, store, or log raw 12-digit
+                Aadhaar numbers or biometric credentials.
+              </p>
+
+              <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "16px" }}>
+                <span style={{ fontSize: "13px", fontWeight: 600 }}>Truthful Status:</span>
+                <span className={`badge ${user?.verificationStatus === "verified" ? "badge-status-verified" : "badge-status-submitted"}`}>
+                  {user?.verificationStatus || "unverified"}
+                </span>
+                <small style={{ color: "var(--muted)" }}>
+                  (Official UIDAI eKYC provider required for verified designation)
+                </small>
+              </div>
+
+              <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", marginTop: "12px" }}>
+                <button
+                  type="button"
+                  className="btn btn-outline btn-sm"
+                  onClick={handleCheckIdentityStatus}
+                  disabled={identityLoading}
+                >
+                  {identityLoading ? "Querying..." : "Query Provider Boundary (/api/auth/identity/status)"}
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-outline btn-sm"
+                  onClick={handleRunDemoVerification}
+                  disabled={identityLoading}
+                >
+                  Test Demo Flow (Does not mark Aadhaar verified)
+                </button>
+              </div>
+
+              {identityStatusData && (
+                <div style={{ marginTop: "14px", padding: "12px", background: "#fff", borderRadius: "8px", border: "1px solid var(--line)", fontSize: "13px" }}>
+                  <strong>Backend Provider Status:</strong> {identityStatusData.providerConfigured ? "Configured" : "Disabled (503 Service Unavailable / Safe Integration Seam)"}
+                  <br />
+                  <strong>Current Account State:</strong> {identityStatusData.verificationStatus || "unverified"}
+                  {identityStatusData.requirements && (
+                    <div style={{ marginTop: "8px" }}>
+                      <strong style={{ fontSize: "12px" }}>Production Prerequisites:</strong>
+                      <ul style={{ margin: "4px 0 0 16px", padding: 0, fontSize: "12px", color: "var(--muted)" }}>
+                        {identityStatusData.requirements.map((r, i) => (
+                          <li key={i}>{r}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {demoVerifyNotice && (
+                <div className="alert-banner-success" style={{ marginTop: "12px" }}>
+                  <CheckCircle2 size={16} /> {demoVerifyNotice}
+                </div>
+              )}
             </div>
 
             <div style={{ marginTop: "30px", borderTop: "1px solid var(--line)", paddingTop: "20px" }}>

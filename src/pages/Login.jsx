@@ -12,7 +12,7 @@ export default function Login() {
     identifier: "",
     password: "",
     adminEmail: "admin@sheq.app",
-    adminKey: "admin123",
+    adminKey: "AdminSecure123!",
     rememberMe: true
   });
   const [errors, setErrors] = useState({});
@@ -63,7 +63,7 @@ export default function Login() {
       setLoading(true);
       try {
         await new Promise(r => setTimeout(r, 400));
-        loginUser({
+        await loginUser({
           emailOrPhone: form.identifier.trim(),
           password: form.password,
           rememberMe: form.rememberMe
@@ -93,7 +93,7 @@ export default function Login() {
       setLoading(true);
       try {
         await new Promise(r => setTimeout(r, 400));
-        loginAdmin({
+        await loginAdmin({
           email: form.adminEmail.trim(),
           key: form.adminKey,
           rememberMe: form.rememberMe
