@@ -28,15 +28,15 @@ export function validatePassword(value) {
     };
   }
 
-  const hasMinLength = value.length >= 6;
+  const hasMinLength = value.length >= 10;
   const hasSpecialChar = specialCharRegex.test(value);
   const isValid = hasMinLength && hasSpecialChar;
 
   let message = "";
   if (!hasMinLength && !hasSpecialChar) {
-    message = "Must be at least 6 characters and include a special character.";
+    message = "Password must be at least 10 characters and include at least one special character (!@#$%^&*...).";
   } else if (!hasMinLength) {
-    message = "Password must be at least 6 characters.";
+    message = "Password must be at least 10 characters.";
   } else if (!hasSpecialChar) {
     message = "Password must include at least one special character (!@#$%^&*...).";
   }

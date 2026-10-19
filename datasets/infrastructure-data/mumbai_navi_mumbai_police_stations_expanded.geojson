@@ -1,0 +1,3053 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2026-10-18T07:53:21Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "relation/6193455",
+        "amenity": "police",
+        "building": "yes",
+        "type": "multipolygon",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.02991,
+          19.0173404
+        ]
+      },
+      "id": "relation/6193455"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "relation/19278855",
+        "amenity": "police",
+        "building": "government;yes",
+        "check_date": "2026-03-12",
+        "name": "Maharashtra Police Headquarters",
+        "type": "multipolygon",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8335259,
+          18.9251097
+        ]
+      },
+      "id": "relation/19278855"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/39834520",
+        "amenity": "police",
+        "building": "apartments",
+        "name": "Gamdevi Police Station",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8123593,
+          18.9605234
+        ]
+      },
+      "id": "way/39834520"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/39839519",
+        "amenity": "police",
+        "building": "apartments",
+        "layer": "1",
+        "name": "Traffic Police",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8128372,
+          18.9615551
+        ]
+      },
+      "id": "way/39839519"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/48754898",
+        "addr:city": "Mumbai",
+        "addr:postcode": "400034",
+        "addr:street": "Tardeo Police Lane",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Tardeo Police Station",
+        "name:mr": "ताडदेव पोलीस स्टेशन",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8141846,
+          18.969526
+        ]
+      },
+      "id": "way/48754898"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/118898002",
+        "amenity": "police",
+        "name": "Versova Police station (D.N.Nagar)",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8302511,
+          19.1245725
+        ]
+      },
+      "id": "way/118898002"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/135732933",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Shivaji Park Police Station",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8409178,
+          19.0232623
+        ]
+      },
+      "id": "way/135732933"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/179915833",
+        "amenity": "police",
+        "name": "Govandi Police station",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.9175446,
+          19.0486817
+        ]
+      },
+      "id": "way/179915833"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/196092411",
+        "amenity": "police",
+        "name": "Santacruz Police Station",
+        "name:en": "Santacruz Police Station",
+        "name:mr": "सांताक्रुझ पोलीस ठाणे",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8350658,
+          19.0841421
+        ]
+      },
+      "id": "way/196092411"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/196620996",
+        "amenity": "police",
+        "name": "Versova Police Chowki",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8106349,
+          19.1367566
+        ]
+      },
+      "id": "way/196620996"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/207376649",
+        "amenity": "police",
+        "check_date": "2026-03-12",
+        "landuse": "commercial",
+        "name": "Azad Maidan Police Station",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.832942,
+          18.9415557
+        ]
+      },
+      "id": "way/207376649"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/207376650",
+        "amenity": "police",
+        "check_date": "2026-03-12",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8332649,
+          18.9420194
+        ]
+      },
+      "id": "way/207376650"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/207380908",
+        "amenity": "police",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8329469,
+          18.9447895
+        ]
+      },
+      "id": "way/207380908"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/207417322",
+        "amenity": "police",
+        "check_date": "2026-07-22",
+        "name": "Colaba Police Station",
+        "name:en": "Colaba Police Station",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8309833,
+          18.9224367
+        ]
+      },
+      "id": "way/207417322"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/207538317",
+        "amenity": "police",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8319773,
+          18.9541543
+        ]
+      },
+      "id": "way/207538317"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/235939616",
+        "amenity": "police",
+        "name": "RPF Reserve Line - Mulund",
+        "operator": "Indian Railways",
+        "operator:wikidata": "Q3523040",
+        "police": "barracks",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.9595462,
+          19.174276
+        ]
+      },
+      "id": "way/235939616"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/237025775",
+        "amenity": "police",
+        "check_date": "2026-03-20",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8167794,
+          18.9609597
+        ]
+      },
+      "id": "way/237025775"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/308016832",
+        "amenity": "police",
+        "name": "Dharavi Police Station",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8575004,
+          19.0432664
+        ]
+      },
+      "id": "way/308016832"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/312763210",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Borivali Police Station",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8559326,
+          19.2295552
+        ]
+      },
+      "id": "way/312763210"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/315440436",
+        "addr:city": "kamothe, navi mumbai",
+        "addr:housenumber": "sec 36",
+        "amenity": "police",
+        "name": "kamothe police station",
+        "opening_hours": "24/7",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0911277,
+          19.0223501
+        ]
+      },
+      "id": "way/315440436"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/317222141",
+        "addr:city": "Mulund (West)",
+        "addr:street": "Subhash Chandra Bose Road",
+        "amenity": "police",
+        "name": "Mulund Police Station",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.9516944,
+          19.1772976
+        ]
+      },
+      "id": "way/317222141"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/343357951",
+        "police": "checkpoint"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0179172,
+          19.0074412
+        ]
+      },
+      "id": "node/343357951"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/347008831",
+        "amenity": "police",
+        "building": "yes",
+        "name": "beat no 2",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8908674,
+          19.0618101
+        ]
+      },
+      "id": "way/347008831"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/347152618",
+        "amenity": "police",
+        "name": "Khar Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8371137,
+          19.064037
+        ]
+      },
+      "id": "node/347152618"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/353192704",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Bail Bazar Police Station",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8810643,
+          19.0852939
+        ]
+      },
+      "id": "way/353192704"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/353758584",
+        "addr:city": "Mumbai",
+        "addr:district": "Mumbai City",
+        "addr:postcode": "400005",
+        "addr:street": "Sadhu Vaswani Marg,Ganesh Murti Nagar, Cuffe Parade",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Cuffe Parade Police Station",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8187464,
+          18.9119152
+        ]
+      },
+      "id": "way/353758584"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/353810415",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Worli Police Station",
+        "name:en": "Worli Police Station",
+        "name:mr": "वरळी पोलीस ठाणे",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.817387,
+          19.0051624
+        ]
+      },
+      "id": "way/353810415"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/354016607",
+        "addr:city": "Navi Mumbai",
+        "addr:postcode": "400706",
+        "addr:street": "Adi Shankaracharya Marg",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Nerul Police Station",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0193851,
+          19.0289022
+        ]
+      },
+      "id": "way/354016607"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/354063829",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Kopri Police Station",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.9692584,
+          19.1782831
+        ]
+      },
+      "id": "way/354063829"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/354066077",
+        "building": "yes",
+        "police": "barracks",
+        "wikidata": "Q6935316",
+        "wikipedia": "en:Mumbai Police",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8358217,
+          19.0156277
+        ]
+      },
+      "id": "way/354066077"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/354066088",
+        "building": "yes",
+        "operator": "Mumbai Police",
+        "police": "barracks",
+        "wikidata": "Q6935316",
+        "wikipedia": "en:Mumbai Police",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8355188,
+          19.0156464
+        ]
+      },
+      "id": "way/354066088"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/354066094",
+        "building": "yes",
+        "operator": "Mumbai Police",
+        "police": "barracks",
+        "wikidata": "Q6935316",
+        "wikipedia": "en:Mumbai Police",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8353192,
+          19.0153384
+        ]
+      },
+      "id": "way/354066094"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/354066127",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Dadar Police Station",
+        "wikidata": "Q6935316",
+        "wikipedia": "en:Mumbai Police",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.835454,
+          19.0150223
+        ]
+      },
+      "id": "way/354066127"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/354066128",
+        "building": "yes",
+        "operator": "Mumbai Police",
+        "police": "barracks",
+        "wikidata": "Q6935316",
+        "wikipedia": "en:Mumbai Police",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8356611,
+          19.0152985
+        ]
+      },
+      "id": "way/354066128"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/356258967",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Bandra Railway Police Station",
+        "name:en": "Bandra Railway Police Station",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8398177,
+          19.0556344
+        ]
+      },
+      "id": "way/356258967"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/357472397",
+        "addr:city": "Mumbai",
+        "addr:housenumber": "105",
+        "addr:postcode": "400050",
+        "addr:street": "Govind Patel Road (Carter Road)",
+        "amenity": "police",
+        "building": "yes",
+        "description": "Dr. Chhering Dorje, Addl. C.P. ( W.R. ) \nBandra West",
+        "email": "cp.mum.addcp.west@mahapolice.gov.in",
+        "fax": "26408688",
+        "name": "Additional Commisioner of Police, Mumbai, West Region",
+        "operator": "Mumbai Police",
+        "phone": "+91 22 26402122",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8226873,
+          19.062812
+        ]
+      },
+      "id": "way/357472397"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/372558787",
+        "addr:city": "Kharghar",
+        "addr:postcode": "410210",
+        "addr:street": "Sector 7",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Kharghar Police Station",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0681273,
+          19.034569
+        ]
+      },
+      "id": "way/372558787"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/417320262",
+        "amenity": "police",
+        "building": "yes",
+        "check_date": "2024-09-25",
+        "name": "Oshiwara Police Station",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8316626,
+          19.1476029
+        ]
+      },
+      "id": "way/417320262"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/427979103",
+        "amenity": "police",
+        "building": "yes",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8047155,
+          19.2286965
+        ]
+      },
+      "id": "way/427979103"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/558708648",
+        "addr:city": "Navi Mumbai",
+        "addr:postcode": "400706",
+        "addr:street": "Gaimukh Chowk",
+        "amenity": "police",
+        "building": "yes",
+        "level": "1",
+        "name": "Gaimukh Chowk Police Station",
+        "operator": "Navi Mumbai Police",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0159441,
+          19.0150691
+        ]
+      },
+      "id": "way/558708648"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/571433508",
+        "amenity": "police",
+        "building": "yes",
+        "name": "N.R.I Coastal Police Station",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0286809,
+          19.0080211
+        ]
+      },
+      "id": "way/571433508"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/605221901",
+        "amenity": "police",
+        "name": "Lokmanya Tilak Road Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8303315,
+          18.9453708
+        ]
+      },
+      "id": "node/605221901"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/621696888",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Goregaon Police Station",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8454704,
+          19.1573154
+        ]
+      },
+      "id": "way/621696888"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/627802514",
+        "addr:city": "Mumbai",
+        "addr:postcode": "400024",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Nehru Nagar Kurla Police Station",
+        "opening_hours": "24/7",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8805426,
+          19.0587962
+        ]
+      },
+      "id": "way/627802514"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/628861218",
+        "addr:city": "Mumbai",
+        "addr:postcode": "400059",
+        "addr:street": "Marol Maroshi Village Road",
+        "amenity": "police",
+        "name": "Marol Police Camp",
+        "police": "barracks",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8833544,
+          19.1249113
+        ]
+      },
+      "id": "way/628861218"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/810361190",
+        "police": "checkpoint"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0016537,
+          19.0586954
+        ]
+      },
+      "id": "node/810361190"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/810361196",
+        "highway": "traffic_signals",
+        "police": "checkpoint",
+        "traffic_signals": "signal",
+        "traffic_signals:direction": "forward"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0014448,
+          19.0593914
+        ]
+      },
+      "id": "node/810361196"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/816431603",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Trombay Police Station",
+        "operator": "Maharashtra Police",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.9452555,
+          19.0380156
+        ]
+      },
+      "id": "way/816431603"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/825118101",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Turbhe Police Station",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0196546,
+          19.0666157
+        ]
+      },
+      "id": "way/825118101"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/829610657",
+        "addr:city": "Mumbai",
+        "addr:postcode": "400010",
+        "addr:street": "Seth Moti Shah Road (Love Lane)",
+        "amenity": "police",
+        "name": "Byculla Police Station",
+        "operator": "Mumbai Police",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8339943,
+          18.9732779
+        ]
+      },
+      "id": "way/829610657"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/858544370",
+        "amenity": "police",
+        "name": "Null Bazaar Police Chowkie"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8290329,
+          18.9570075
+        ]
+      },
+      "id": "node/858544370"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/858544419",
+        "amenity": "police",
+        "name": "Pydhoni Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.832021,
+          18.9541719
+        ]
+      },
+      "id": "node/858544419"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/860348747",
+        "amenity": "police",
+        "name": "Dongri Police Station",
+        "postal_code": "400009"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8390488,
+          18.9621396
+        ]
+      },
+      "id": "node/860348747"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/861239805",
+        "amenity": "police",
+        "name": "Sir JJ Marg Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.832291,
+          18.963006
+        ]
+      },
+      "id": "node/861239805"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/976558509",
+        "building": "yes",
+        "police": "offices",
+        "wikidata": "Q6935316",
+        "wikipedia": "en:Mumbai Police",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8356005,
+          19.0159066
+        ]
+      },
+      "id": "way/976558509"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/985121037",
+        "amenity": "police",
+        "name": "Aarey Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8543819,
+          19.1664849
+        ]
+      },
+      "id": "node/985121037"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/985121043",
+        "amenity": "police",
+        "name": "Goregaon (E) Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8576756,
+          19.1558742
+        ]
+      },
+      "id": "node/985121043"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1009581717",
+        "amenity": "police",
+        "name": "Cuffe Parade Police Station",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8187658,
+          18.9119181
+        ]
+      },
+      "id": "way/1009581717"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1034965532",
+        "amenity": "police",
+        "name": "Lokmanya Tilak Police Chowkie Beat No 4",
+        "wpt_symbol": "Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8337631,
+          18.9473567
+        ]
+      },
+      "id": "node/1034965532"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1034965537",
+        "amenity": "police",
+        "name": "Lokmanya Tilak Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8331294,
+          18.9463293
+        ]
+      },
+      "id": "node/1034965537"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1068842996",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Rabale Traffic Police Station",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.9931274,
+          19.1484859
+        ]
+      },
+      "id": "way/1068842996"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1071173544",
+        "amenity": "police",
+        "building": "yes",
+        "layer": "1",
+        "name": "Rabale Police Station",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0011119,
+          19.1462779
+        ]
+      },
+      "id": "way/1071173544"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1120071108",
+        "amenity": "police",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.9684652,
+          19.1690865
+        ]
+      },
+      "id": "way/1120071108"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1122104211",
+        "amenity": "police",
+        "building": "office",
+        "name": "Mulund Police Chowky",
+        "phone": "+91 22 25684535",
+        "police": "checkpoint",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.9562759,
+          19.1723689
+        ]
+      },
+      "id": "way/1122104211"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1147920085",
+        "addr:postcode": "400614",
+        "addr:street": "Sakharam Patil Marg",
+        "amenity": "police",
+        "check_date": "2025-12-19",
+        "name": "CBD Belapur Police Station",
+        "name:en": "CBD Belapur Police Station",
+        "phone": "02227580255",
+        "source": "Survey",
+        "website": "http://www.mahapolice.gov.in/mahapolice/jsp/temp/newmumbai.jsp",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0412484,
+          19.0253765
+        ]
+      },
+      "id": "way/1147920085"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1149824750",
+        "amenity": "police",
+        "name": "Kherwadi Police Station",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8501835,
+          19.0659446
+        ]
+      },
+      "id": "way/1149824750"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1150984455",
+        "addr:city": "Thane",
+        "addr:postcode": "400602",
+        "addr:street": "Prashant Nagar Road",
+        "amenity": "police",
+        "building": "yes",
+        "layer": "1",
+        "name": "Naupada Police Station",
+        "opening_hours": "24/7",
+        "operator": "Thane Police",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.9672205,
+          19.1887149
+        ]
+      },
+      "id": "way/1150984455"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1226336527",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Juhu Tara Road Police Station",
+        "name:en": "Juhu Tara Road Police Station",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8269152,
+          19.0964802
+        ]
+      },
+      "id": "way/1226336527"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1241711502",
+        "amenity": "police",
+        "description": "Police commissioner",
+        "ele": "11.901855",
+        "sym": "Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8328893,
+          18.9444479
+        ]
+      },
+      "id": "node/1241711502"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1249585544",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Rabodi Police Station",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.9822765,
+          19.2102463
+        ]
+      },
+      "id": "way/1249585544"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1301593213",
+        "amenity": "police"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8323654,
+          18.9675282
+        ]
+      },
+      "id": "node/1301593213"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1311209831",
+        "amenity": "police",
+        "building": "yes",
+        "level": "0",
+        "name": "Seawoods Traffic Police Station",
+        "operator": "Maharashtra Police",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.019855,
+          19.0194324
+        ]
+      },
+      "id": "way/1311209831"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1332582403",
+        "amenity": "police",
+        "name:en": "Marine Drive Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8243459,
+          18.9302617
+        ]
+      },
+      "id": "node/1332582403"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1334676842",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Bandra Police Station",
+        "name:en": "Bandra Police Station",
+        "operator": "Mumbai Police",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.83574,
+          19.0559096
+        ]
+      },
+      "id": "way/1334676842"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1381366790",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Mahim Traffic Division",
+        "name:en": "Mahim Traffic Division",
+        "name:mr": "माहीम वाहतुक विभाग",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8401727,
+          19.0421503
+        ]
+      },
+      "id": "way/1381366790"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1385281128",
+        "amenity": "police",
+        "name": "Golden Nest Police Chowki",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8587022,
+          19.2955748
+        ]
+      },
+      "id": "way/1385281128"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1411467112",
+        "amenity": "police",
+        "name": "Homeguard Central Training Institute",
+        "police": "academy",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8919053,
+          19.0904101
+        ]
+      },
+      "id": "way/1411467112"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1413065721",
+        "police": "checkpoint",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.9790464,
+          19.0641019
+        ]
+      },
+      "id": "way/1413065721"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1424156817",
+        "amenity": "police",
+        "building": "yes",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.835323,
+          19.0841356
+        ]
+      },
+      "id": "way/1424156817"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1428230096",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Bandra Reclamation Police Station",
+        "name:en": "Bandra Reclamation Police Station",
+        "name:mr": "वांद्रे रिक्लेमेशन पोलीस चौकी",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8299243,
+          19.0507687
+        ]
+      },
+      "id": "way/1428230096"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1442619090",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Nagpada Police Station",
+        "name:en": "Nagpada Police Station",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.829239,
+          18.9670301
+        ]
+      },
+      "id": "way/1442619090"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1457063703",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Chhota Sonapur Police Chowki",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8245923,
+          18.9619923
+        ]
+      },
+      "id": "way/1457063703"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1457969605",
+        "amenity": "police",
+        "name": "Shivajinagar Police Station",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.9168084,
+          19.063471
+        ]
+      },
+      "id": "way/1457969605"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1468852699",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Colaba Traffic Police Division",
+        "name:en": "Colaba Traffic Police Division",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.830347,
+          18.9350835
+        ]
+      },
+      "id": "way/1468852699"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1523903435",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Bangur Nagar Link Road Police Station",
+        "operator": "Maharashtra Police",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8319317,
+          19.1752423
+        ]
+      },
+      "id": "way/1523903435"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1697431324",
+        "amenity": "police",
+        "check_date": "2024-09-25",
+        "name": "D.N. Nagar Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8299999,
+          19.1225849
+        ]
+      },
+      "id": "node/1697431324"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1905389024",
+        "amenity": "police",
+        "name": "Versova Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8303704,
+          19.1241245
+        ]
+      },
+      "id": "node/1905389024"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1960732105",
+        "amenity": "police",
+        "name": "Police Commissioner Office"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.9811271,
+          19.1960801
+        ]
+      },
+      "id": "node/1960732105"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1960732177",
+        "amenity": "police",
+        "name": "Vartak Nagar Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.9627611,
+          19.2131355
+        ]
+      },
+      "id": "node/1960732177"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1990647113",
+        "addr:housenumber": "Sector 10",
+        "addr:postcode": "400709",
+        "addr:street": "Atmaram Bhoir Marg",
+        "amenity": "police",
+        "name": "KK POLICE STATION",
+        "name:en": "D Mart Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0051825,
+          19.0990752
+        ]
+      },
+      "id": "node/1990647113"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2097757614",
+        "amenity": "police"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8582168,
+          19.2282071
+        ]
+      },
+      "id": "node/2097757614"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2171447204",
+        "amenity": "police",
+        "name": "Police Chowki"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8292193,
+          19.0628319
+        ]
+      },
+      "id": "node/2171447204"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2206289223",
+        "addr:postcode": "421202",
+        "addr:street": "kopar road",
+        "amenity": "police",
+        "name": "Vishnunagar Police Station",
+        "opening_hours": "24/7"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0867512,
+          19.2192494
+        ]
+      },
+      "id": "node/2206289223"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2211539377",
+        "highway": "traffic_signals",
+        "police": "checkpoint",
+        "traffic_signals": "signal",
+        "traffic_signals:direction": "forward"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0177805,
+          19.0172336
+        ]
+      },
+      "id": "node/2211539377"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2246309745",
+        "police": "checkpoint"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.03494,
+          19.031174
+        ]
+      },
+      "id": "node/2246309745"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2298079810",
+        "amenity": "police",
+        "name": "Police Station, Thakur Village"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8729038,
+          19.2059514
+        ]
+      },
+      "id": "node/2298079810"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2308138695",
+        "amenity": "police",
+        "check_date": "2026-05-03",
+        "name": "Dindoshi Police station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8577333,
+          19.1789489
+        ]
+      },
+      "id": "node/2308138695"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2449734722",
+        "amenity": "police",
+        "check_date": "2026-03-20",
+        "name": "Badhamkar Mark Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8170666,
+          18.9608206
+        ]
+      },
+      "id": "node/2449734722"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2562631232",
+        "amenity": "police",
+        "check_date": "2026-08-01",
+        "name": "Gokuldham Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8676526,
+          19.1755909
+        ]
+      },
+      "id": "node/2562631232"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2680678193",
+        "amenity": "police",
+        "name": "Police Chowk"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8294847,
+          19.0738897
+        ]
+      },
+      "id": "node/2680678193"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2930732807",
+        "amenity": "police",
+        "name": "Tilak Nagar Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8959976,
+          19.0652856
+        ]
+      },
+      "id": "node/2930732807"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2933183452",
+        "addr:city": "Kurla West, Mumbai",
+        "addr:postcode": "400070",
+        "amenity": "police",
+        "name": "VB Nagar Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8842275,
+          19.0717172
+        ]
+      },
+      "id": "node/2933183452"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3008501715",
+        "amenity": "police",
+        "name": "Police Commissioner's Office"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.833307,
+          18.9462953
+        ]
+      },
+      "id": "node/3008501715"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3186544582",
+        "amenity": "police"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8559481,
+          19.2294953
+        ]
+      },
+      "id": "node/3186544582"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3204171992",
+        "amenity": "police",
+        "name": "POLICE STATION"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.9357,
+          19.0537
+        ]
+      },
+      "id": "node/3204171992"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3205945190",
+        "addr:city": "mumbai",
+        "amenity": "police",
+        "name": "trombay police station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.9499458,
+          19.0361453
+        ]
+      },
+      "id": "node/3205945190"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3205950901",
+        "addr:postcode": "400 078",
+        "addr:street": "Tembhipada Road",
+        "amenity": "police",
+        "name": "Tembhipada Police Chowki"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.9291114,
+          19.1548902
+        ]
+      },
+      "id": "node/3205950901"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3205956099",
+        "addr:city": "mumbai",
+        "addr:housenumber": "near Handore office",
+        "addr:postcode": "400089",
+        "addr:street": "P.L. Lokhande Marg",
+        "amenity": "police",
+        "name": "chembur police station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.9008254,
+          19.0639495
+        ]
+      },
+      "id": "node/3205956099"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3215545236",
+        "amenity": "police",
+        "name": "Maharashtra Nagar Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.9378622,
+          19.0502474
+        ]
+      },
+      "id": "node/3215545236"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3215577539",
+        "amenity": "police",
+        "name": "Govandi Police station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.9116651,
+          19.0595211
+        ]
+      },
+      "id": "node/3215577539"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3215584200",
+        "amenity": "police",
+        "name": "Lallubhai Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.9270997,
+          19.0528478
+        ]
+      },
+      "id": "node/3215584200"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3215621243",
+        "addr:city": "mumbai",
+        "addr:postcode": "400089",
+        "addr:street": "P.L. Lokhande Marg",
+        "amenity": "police",
+        "name": "gaikwaad nagar police station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.9104397,
+          19.0603518
+        ]
+      },
+      "id": "node/3215621243"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3263043837",
+        "addr:city": "Thane (West)",
+        "amenity": "police",
+        "name": "WAGLE POLICE STATION"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.9550994,
+          19.2031874
+        ]
+      },
+      "id": "node/3263043837"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3532121099",
+        "amenity": "police",
+        "name": "Nehru Nagar Kurla E Police Chowky"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8808749,
+          19.0650661
+        ]
+      },
+      "id": "node/3532121099"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3547889593",
+        "amenity": "police",
+        "name": "Khardev Nagar Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.9088297,
+          19.0557429
+        ]
+      },
+      "id": "node/3547889593"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3602876220",
+        "amenity": "police",
+        "name": "Vikhroli Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.9373252,
+          19.1187189
+        ]
+      },
+      "id": "node/3602876220"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4402150675",
+        "addr:city": "cheedanagar, chembur,mumbai",
+        "addr:postcode": "400089",
+        "addr:street": "Road No 1",
+        "amenity": "police",
+        "check_date": "2026-07-08",
+        "name": "Chheda Nagar Police Station",
+        "operator": "Mumbai Police",
+        "phone": "+912225259663"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.9031566,
+          19.0672141
+        ]
+      },
+      "id": "node/4402150675"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4424542678",
+        "addr:city": "mumbai",
+        "addr:housenumber": "23",
+        "addr:postcode": "560023",
+        "addr:street": "str",
+        "amenity": "police",
+        "internet_access": "yes",
+        "name": "chaitra cafe",
+        "opening_hours": "00:00-24:00",
+        "phone": "+9190666227898",
+        "website": "https://www.cafe.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.1009651,
+          19.03502
+        ]
+      },
+      "id": "node/4424542678"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4621598794",
+        "addr:street": "C S Link Road",
+        "amenity": "police",
+        "name:en": "Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8650937,
+          19.2573838
+        ]
+      },
+      "id": "node/4621598794"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4658680890",
+        "addr:postcode": "400081",
+        "addr:street": "Navghar Marg",
+        "amenity": "police"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.9591762,
+          19.1695498
+        ]
+      },
+      "id": "node/4658680890"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4791178925",
+        "addr:postcode": "400081",
+        "addr:street": "Lokmanya Tilak Road",
+        "amenity": "police"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.956655,
+          19.1715844
+        ]
+      },
+      "id": "node/4791178925"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4848773734",
+        "amenity": "police",
+        "check_date": "2026-03-20",
+        "name": "Sion (E) Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8575876,
+          19.0313226
+        ]
+      },
+      "id": "node/4848773734"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5057817507",
+        "amenity": "police",
+        "name": "Matunga Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8578787,
+          19.0311163
+        ]
+      },
+      "id": "node/5057817507"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5073191992",
+        "amenity": "police",
+        "name": "Shil Mhape Police Chouki"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0343208,
+          19.1147228
+        ]
+      },
+      "id": "node/5073191992"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5077468322",
+        "amenity": "police",
+        "name:en": "Shil Daighar Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.046117,
+          19.1428227
+        ]
+      },
+      "id": "node/5077468322"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5077468323",
+        "amenity": "police",
+        "name:en": "Rabale Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0009279,
+          19.1463017
+        ]
+      },
+      "id": "node/5077468323"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5116459526",
+        "amenity": "police",
+        "name": "Kandivali Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8501404,
+          19.209583
+        ]
+      },
+      "id": "node/5116459526"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5258276335",
+        "amenity": "police",
+        "name": "Mount Mary Police Chouki"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8232806,
+          19.051928
+        ]
+      },
+      "id": "node/5258276335"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5312329616",
+        "highway": "traffic_signals",
+        "police": "checkpoint",
+        "traffic_signals": "signal",
+        "traffic_signals:direction": "forward"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0178527,
+          19.0171715
+        ]
+      },
+      "id": "node/5312329616"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5424258003",
+        "police": "checkpoint"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.022572,
+          19.043447
+        ]
+      },
+      "id": "node/5424258003"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5448387024",
+        "amenity": "police"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.837489,
+          18.9978829
+        ]
+      },
+      "id": "node/5448387024"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5506320530",
+        "amenity": "police",
+        "name": "BKC Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8603409,
+          19.0645147
+        ]
+      },
+      "id": "node/5506320530"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5614984680",
+        "amenity": "police",
+        "name": "Versova Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8044882,
+          19.1429738
+        ]
+      },
+      "id": "node/5614984680"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5667043327",
+        "amenity": "police",
+        "name": "Samatanagar Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8614152,
+          19.1998393
+        ]
+      },
+      "id": "node/5667043327"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5668284373",
+        "addr:city": "Mumbai",
+        "addr:postcode": "400013",
+        "addr:street": "Sakubai Mohite Marg",
+        "amenity": "police",
+        "check_date": "2026-03-20",
+        "name": "NM Joshi Marg Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8309771,
+          18.9914132
+        ]
+      },
+      "id": "node/5668284373"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6052581621",
+        "amenity": "police",
+        "name": "Traffic Police Chowky"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.9374814,
+          19.163976
+        ]
+      },
+      "id": "node/6052581621"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7350117755",
+        "police": "checkpoint"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.03331,
+          19.0197999
+        ]
+      },
+      "id": "node/7350117755"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7499053623",
+        "addr:city": "Mumbai",
+        "addr:postcode": "400008",
+        "addr:street": "Undria Street",
+        "amenity": "police",
+        "name": "Chowki Mohalla Police Chowki",
+        "operator": "Mumbai Police"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8301422,
+          18.9618784
+        ]
+      },
+      "id": "node/7499053623"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7506854141",
+        "amenity": "police",
+        "name": "Do Taki Police Chowki",
+        "operator": "Mumbai Police"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8286697,
+          18.9616064
+        ]
+      },
+      "id": "node/7506854141"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8170852418",
+        "amenity": "police",
+        "name:en": "Malad Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8445059,
+          19.1834974
+        ]
+      },
+      "id": "node/8170852418"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9081860659",
+        "amenity": "police",
+        "name": "Elphinstone Road Traffic Police Chowki"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8325587,
+          19.0085419
+        ]
+      },
+      "id": "node/9081860659"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9139914820",
+        "amenity": "police"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8266433,
+          19.0981885
+        ]
+      },
+      "id": "node/9139914820"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9215039104",
+        "amenity": "police",
+        "name": "Chitalsar Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.9762793,
+          19.2313943
+        ]
+      },
+      "id": "node/9215039104"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9659499745",
+        "police": "checkpoint"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.028916,
+          19.0355362
+        ]
+      },
+      "id": "node/9659499745"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9685181440",
+        "police": "checkpoint"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0249679,
+          19.0088246
+        ]
+      },
+      "id": "node/9685181440"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9714031257",
+        "police": "checkpoint"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0229914,
+          19.0238196
+        ]
+      },
+      "id": "node/9714031257"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9730701801",
+        "amenity": "police",
+        "name": "Khar Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8376531,
+          19.072887
+        ]
+      },
+      "id": "node/9730701801"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9867448011",
+        "police": "checkpoint"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0157868,
+          19.0151718
+        ]
+      },
+      "id": "node/9867448011"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9867448013",
+        "police": "checkpoint"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0289338,
+          19.0095453
+        ]
+      },
+      "id": "node/9867448013"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9867448014",
+        "police": "checkpoint"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.028966,
+          19.0093981
+        ]
+      },
+      "id": "node/9867448014"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9867448015",
+        "police": "checkpoint"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0116043,
+          19.0109672
+        ]
+      },
+      "id": "node/9867448015"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9867461218",
+        "police": "checkpoint"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0088894,
+          19.0212777
+        ]
+      },
+      "id": "node/9867461218"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9867461219",
+        "police": "checkpoint"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0084151,
+          19.021558
+        ]
+      },
+      "id": "node/9867461219"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9867461220",
+        "police": "checkpoint"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0082731,
+          19.0215632
+        ]
+      },
+      "id": "node/9867461220"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9867461221",
+        "police": "checkpoint"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0088639,
+          19.0441065
+        ]
+      },
+      "id": "node/9867461221"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9867461222",
+        "police": "checkpoint"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0246925,
+          19.0468389
+        ]
+      },
+      "id": "node/9867461222"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9867461223",
+        "police": "checkpoint"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0248899,
+          19.0466291
+        ]
+      },
+      "id": "node/9867461223"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9876652392",
+        "amenity": "police",
+        "name": "Ramnagar Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0861813,
+          19.2166065
+        ]
+      },
+      "id": "node/9876652392"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9876669070",
+        "amenity": "police",
+        "name": "Vishnu Nagar Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0868311,
+          19.219069
+        ]
+      },
+      "id": "node/9876669070"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9984350673",
+        "police": "checkpoint"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0293614,
+          19.0225631
+        ]
+      },
+      "id": "node/9984350673"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9988794450",
+        "police": "checkpoint"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0236501,
+          19.0089818
+        ]
+      },
+      "id": "node/9988794450"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10160403766",
+        "police": "checkpoint"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0347691,
+          19.0290386
+        ]
+      },
+      "id": "node/10160403766"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10196823118",
+        "addr:postcode": "400607",
+        "addr:street": "Ghodbunder Service Road",
+        "amenity": "police",
+        "name:en": "Kasarvadavali Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.9669954,
+          19.2590592
+        ]
+      },
+      "id": "node/10196823118"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10296626442",
+        "amenity": "police",
+        "name": "Juhu Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8327116,
+          19.1031659
+        ]
+      },
+      "id": "node/10296626442"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10652868947",
+        "police": "checkpoint"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0323746,
+          19.0201533
+        ]
+      },
+      "id": "node/10652868947"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10705115166",
+        "amenity": "police"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.9759036,
+          19.1871851
+        ]
+      },
+      "id": "node/10705115166"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11452014435",
+        "amenity": "police",
+        "name": "Chaitya Bhumi Police Chowk"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8345223,
+          19.0260237
+        ]
+      },
+      "id": "node/11452014435"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11615592630",
+        "amenity": "police",
+        "name": "Anti Corruption Bureau Thane"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.9826331,
+          19.2059644
+        ]
+      },
+      "id": "node/11615592630"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12026381269",
+        "amenity": "police",
+        "name": "Shivaji Nagar Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8433693,
+          19.0610978
+        ]
+      },
+      "id": "node/12026381269"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12137305787",
+        "police": "checkpoint"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0200538,
+          19.0196404
+        ]
+      },
+      "id": "node/12137305787"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12137305788",
+        "police": "checkpoint"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.020131,
+          19.0197188
+        ]
+      },
+      "id": "node/12137305788"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12848852348",
+        "name": "Hindustan Police Chowky Beat No.4",
+        "police": "checkpoint"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.9320812,
+          19.1690635
+        ]
+      },
+      "id": "node/12848852348"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12878867195",
+        "amenity": "police",
+        "name": "Office Of The Inspector Incharge, Mulund East",
+        "operator": "Indian Railways",
+        "operator:wikidata": "Q3523040"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.9575152,
+          19.1721599
+        ]
+      },
+      "id": "node/12878867195"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13514237453",
+        "amenity": "police",
+        "name": "Mata Ramabai Ambedkar Marg Police Thaane",
+        "name:mr": "माता रामबाई आंबेडकर मार्ग पोलीस ठाणे",
+        "wheelchair": "limited"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8318499,
+          18.9325312
+        ]
+      },
+      "id": "node/13514237453"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/14197852563",
+        "amenity": "police",
+        "name": "Oshiwara Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8258648,
+          19.1400005
+        ]
+      },
+      "id": "node/14197852563"
+    }
+  ]
+}

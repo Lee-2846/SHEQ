@@ -18,7 +18,14 @@ export function DataProvider({ children }) {
   const [issues, setIssues] = useState(initialIssues);
   const [escalations, setEscalations] = useState(initialEscalations);
   const [savedPlaces, setSavedPlaces] = useState(initialSavedPlaces);
-  const [contacts, setContacts] = useState(initialContacts);
+  const [contacts, setContacts] = useState(() => {
+    try {
+      const saved = localStorage.getItem("sheq_emergency_contacts");
+      return saved ? JSON.parse(saved) : initialContacts;
+    } catch {
+      return initialContacts;
+    }
+  });
   const [alerts, setAlerts] = useState(initialAlerts);
 
   // Compute provisional Hotspot Candidates live from reports dataset
@@ -213,7 +220,15 @@ export function DataProvider({ children }) {
   }
 
   function updateContacts(newContacts) {
-    setContacts(prev => ({ ...prev, ...newContacts }));
+    setContacts(prev => {
+      const next = { ...prev, ...newContacts };
+      try {
+        localStorage.setItem("sheq_emergency_contacts", JSON.stringify(next));
+      } catch {
+        // Fallback gracefully if storage is restricted
+      }
+      return next;
+    });
   }
 
   return (

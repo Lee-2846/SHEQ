@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { UserCheck, ShieldAlert, Mail, Phone, Lock, ArrowRight } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
@@ -18,9 +18,20 @@ export default function Login() {
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
 
-  const { loginUser, loginAdmin } = useAuth();
+  const { user, isAuthenticated, isAdmin, loginUser, loginAdmin } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
+
+  // Redirect already authenticated users appropriately
+  useEffect(() => {
+    if (isAuthenticated) {
+      if (isAdmin) {
+        navigate("/admin", { replace: true });
+      } else {
+        navigate("/dashboard", { replace: true });
+      }
+    }
+  }, [isAuthenticated, isAdmin, navigate]);
 
   const from = location.state?.from?.pathname || (mode === "admin" ? "/admin" : "/dashboard");
 
@@ -62,9 +73,8 @@ export default function Login() {
 
       setLoading(true);
       try {
-        await new Promise(r => setTimeout(r, 400));
-        loginUser({
-          emailOrPhone: form.identifier.trim(),
+        await loginUser({
+          identifier: form.identifier.trim(),
           password: form.password,
           rememberMe: form.rememberMe
         });
@@ -92,8 +102,7 @@ export default function Login() {
 
       setLoading(true);
       try {
-        await new Promise(r => setTimeout(r, 400));
-        loginAdmin({
+        await loginAdmin({
           email: form.adminEmail.trim(),
           key: form.adminKey,
           rememberMe: form.rememberMe
