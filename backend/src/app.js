@@ -11,6 +11,7 @@ import hotspotsRouter from "./routes/hotspots.js";
 import escalationsRouter from "./routes/escalations.js";
 import analyticsRouter from "./routes/analytics.js";
 import infrastructureRouter from "./routes/infrastructure.js";
+import identityRouter from "./routes/identity.js";
 import { notFound, errorHandler } from "./middleware/errors.js";
 
 const app = express();
@@ -49,6 +50,7 @@ app.use("/api/hotspots", hotspotsRouter);
 app.use("/api/escalations", escalationsRouter);
 app.use("/api/analytics", analyticsRouter);
 app.use("/api/infrastructure", infrastructureRouter);
+app.use("/api/identity", identityRouter);
 app.use(notFound);
 app.use(errorHandler);
 export default app;

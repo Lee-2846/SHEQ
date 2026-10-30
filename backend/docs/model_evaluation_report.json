@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "evaluation_date": "2026-10-18T18:29:40.148961",
+    "evaluation_date": "2026-10-19T13:35:23.278964",
     "dataset_used": "SHEQ_dataset2_SYNTHETIC_demo.csv (500 records)",
     "data_provenance": "Synthetic demonstration dataset exclusively. Real NCRB records are city aggregates.",
     "task": "Provisional Hotspot Candidate Priority Classification",
@@ -51,7 +51,7 @@
   "logistic_regression_baseline": {
     "accuracy": 0.78,
     "f1_score": 0.6207,
-    "roc_auc": 0.7661
+    "roc_auc": 0.7656
   },
   "honest_ml_limitations": [
     "Trained on synthetic demonstration coordinates; do not interpret accuracy as real-world crime prediction.",

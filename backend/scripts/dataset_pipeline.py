@@ -23,6 +23,7 @@ from datetime import datetime
 
 import numpy as np
 import pandas as pd
+import joblib
 from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
@@ -308,9 +309,9 @@ def train_and_evaluate_ml(df_synthetic, infra_data):
         ]
     }
 
-    return evaluation_report
+    return evaluation_report, rf, list(X.columns)
 
-def save_reports(audit_results, eval_report):
+def save_reports(audit_results, eval_report, rf, feature_names):
     docs_dir = os.path.join(PROJECT_ROOT, "backend", "docs")
     os.makedirs(docs_dir, exist_ok=True)
     
@@ -387,10 +388,59 @@ def save_reports(audit_results, eval_report):
         f.write(md_content)
     print(f"Saved markdown report: {md_path}")
 
+    # 3. Save Scikit-Learn Joblib Model Artifact
+    joblib_path = os.path.join(docs_dir, "hotspot_rf_model.joblib")
+    joblib.dump(rf, joblib_path)
+    print(f"Saved joblib model artifact: {joblib_path}")
+
+    # 4. Save JSON Model Artifact with Exact Decision Trees for Fast Node.js / Python Inference
+    trees_json = []
+    for estimator in rf.estimators_:
+        t = estimator.tree_
+        trees_json.append({
+            "children_left": t.children_left.tolist(),
+            "children_right": t.children_right.tolist(),
+            "feature": t.feature.tolist(),
+            "threshold": [round(float(v), 6) for v in t.threshold.tolist()],
+            "value": [[[round(float(count), 4) for count in c] for c in class_dist] for class_dist in t.value.tolist()]
+        })
+
+    model_artifact = {
+        "metadata": {
+            "model_name": "RandomForestClassifier",
+            "version": "rf-v1.0-synthetic-demo",
+            "n_estimators": len(rf.estimators_),
+            "max_depth": 6,
+            "random_state": 42,
+            "classes": [int(c) for c in rf.classes_],
+            "trained_at": datetime.now().isoformat(),
+            "training_dataset": "SHEQ_dataset2_SYNTHETIC_demo.csv (500 records)",
+            "task": "Provisional Hotspot Candidate Priority Classification",
+            "honest_limitations": [
+                "Trained on synthetic demonstration coordinates; does not represent scientific validation of real-world crime.",
+                "Mandatory administrator review required before candidate designation."
+            ]
+        },
+        "feature_names": feature_names,
+        "category_mapping": {
+            "poor_lighting_concern": "cat_poor_lighting_concern",
+            "stalking": "cat_stalking",
+            "unsafe_public_area": "cat_unsafe_public_area",
+            "verbal_harassment": "cat_verbal_harassment",
+            "harassment": "reference_baseline"
+        },
+        "trees": trees_json
+    }
+
+    model_json_path = os.path.join(docs_dir, "hotspot_rf_model.json")
+    with open(model_json_path, "w", encoding="utf-8") as f:
+        json.dump(model_artifact, f)
+    print(f"Saved JSON decision trees model artifact: {model_json_path} ({len(trees_json)} trees)")
+
 def main():
     audit_results, df_synthetic, infra_data = audit_datasets()
-    eval_report = train_and_evaluate_ml(df_synthetic, infra_data)
-    save_reports(audit_results, eval_report)
+    eval_report, rf, feature_names = train_and_evaluate_ml(df_synthetic, infra_data)
+    save_reports(audit_results, eval_report, rf, feature_names)
     print("\nDataset pipeline execution completed successfully!")
 
 if __name__ == "__main__":

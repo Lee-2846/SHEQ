@@ -2459,6 +2459,135 @@ textarea:focus {
   line-height: 1.6
 }
 
+/* Verification Stepper & Vault Styles */
+.verification-stepper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.stepper-stage {
+  background: var(--ivory);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: border-color .15s ease;
+}
+
+.stepper-stage.completed {
+  border-color: #28a745;
+  background: rgba(40, 167, 69, 0.04);
+}
+
+.stepper-stage.active {
+  border-color: var(--berry);
+  background: var(--berry-light);
+}
+
+.stepper-stage-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.stepper-num {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--line);
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+}
+
+.stepper-stage.completed .stepper-num {
+  background: #28a745;
+  color: #fff;
+}
+
+.stepper-stage.active .stepper-num {
+  background: var(--berry);
+  color: #fff;
+}
+
+.stepper-stage-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.stepper-stage-status {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.stepper-stage.completed .stepper-stage-status {
+  color: #28a745;
+  font-weight: 600;
+}
+
+.stepper-stage.active .stepper-stage-status {
+  color: var(--berry);
+  font-weight: 600;
+}
+
+.vault-info-card {
+  background: var(--ivory);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px;
+  margin-top: 16px;
+}
+
+.phone-verify-box {
+  background: var(--ivory);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px;
+  margin-top: 14px;
+}
+
+.doc-upload-zone {
+  border: 2px dashed rgba(108, 47, 65, 0.25);
+  background: rgba(108, 47, 65, 0.02);
+  border-radius: 14px;
+  padding: 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: all .2s ease;
+  margin: 14px 0;
+}
+
+.doc-upload-zone:hover {
+  border-color: var(--berry);
+  background: rgba(108, 47, 65, 0.05);
+}
+
+.doc-guideline-box {
+  background: #fff8eb;
+  border: 1px solid #ffd8a8;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin: 14px 0;
+  font-size: 13px;
+  color: #855e00;
+}
+
+.doc-guideline-box ul {
+  margin: 6px 0 0 18px;
+  padding: 0;
+}
+
+.doc-guideline-box li {
+  margin-bottom: 4px;
+}
+
 /* Contacts Cards */
 .contact-display-card {
   display: flex;

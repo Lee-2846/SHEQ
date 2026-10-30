@@ -6,3 +6,7 @@ coverage/
 .DS_Store
 npm-debug.log*
 *.log
+
+# Private identity document uploads (never commit member identity documents)
+uploads/vault_documents/*
+!uploads/vault_documents/.gitkeep

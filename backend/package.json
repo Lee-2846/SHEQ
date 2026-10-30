@@ -4,7 +4,9 @@
   "private": true,
   "type": "module",
   "description": "SHEQ API for community safety reports, identity-provider integration, admin moderation and hotspot candidates",
-  "engines": { "node": ">=20" },
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "dev": "node --watch src/server.js",
     "start": "node src/server.js",
@@ -23,6 +25,8 @@
     "helmet": "^8.0.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.9.5",
+    "multer": "^2.4.0",
+    "nodemailer": "^10.1.7",
     "zod": "^3.24.1"
   }
 }

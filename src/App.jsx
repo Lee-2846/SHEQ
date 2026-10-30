@@ -33,6 +33,7 @@ import AdminHotspots from "./pages/admin/AdminHotspots";
 import AdminIssues from "./pages/admin/AdminIssues";
 import AdminEscalations from "./pages/admin/AdminEscalations";
 import AdminModeration from "./pages/admin/AdminModeration";
+import AdminIdentity from "./pages/admin/AdminIdentity";
 
 export default function App() {
   const location = useLocation();
@@ -137,6 +138,7 @@ export default function App() {
                   }
                 >
                   <Route index element={<AdminDashboard />} />
+                  <Route path="identity" element={<AdminIdentity />} />
                   <Route path="reports" element={<AdminReports />} />
                   <Route path="hotspots" element={<AdminHotspots />} />
                   <Route path="issues" element={<AdminIssues />} />

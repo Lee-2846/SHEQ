@@ -1,5 +1,5 @@
 # SHEQ Dataset Audit and Machine Learning Evaluation Report
-**Date:** 2026-10-18
+**Date:** 2026-10-19
 **Status:** Evaluation-Ready (Reproducible Pipeline)
 
 ---
@@ -36,7 +36,7 @@
 | **Precision** | **63.64%** | N/A |
 | **Recall** | **43.75%** | N/A |
 | **F1-Score** | **51.85%** | 62.07% |
-| **ROC-AUC** | **0.7509** | 0.7661 |
+| **ROC-AUC** | **0.7509** | 0.7656 |
 | **5-Fold Cross-Validation AUC** | **0.6838 (+/- 0.0471)** | N/A |
 
 ### Confusion Matrix (Test Set, N=101):

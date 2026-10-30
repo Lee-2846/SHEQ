@@ -14,11 +14,12 @@ export default function AdminLayout() {
 
   const navItems = [
     { to: "/admin", label: "Overview", icon: LayoutDashboard, end: true },
+    { to: "/admin/identity", label: "Identity Review", icon: ShieldCheck },
     { to: "/admin/reports", label: "Reports Moderation", icon: FileText },
     { to: "/admin/hotspots", label: "Hotspot Analysis", icon: Flame },
     { to: "/admin/issues", label: "Complaints & Issues", icon: AlertCircle },
     { to: "/admin/escalations", label: "External Escalations", icon: Share2 },
-    { to: "/admin/moderation", label: "Dispute Log", icon: ShieldCheck }
+    { to: "/admin/moderation", label: "Dispute Log", icon: AlertCircle }
   ];
 
   return (

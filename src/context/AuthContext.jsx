@@ -1,5 +1,10 @@
 import { createContext, useContext, useState } from "react";
-import { login as apiLogin, signup as apiSignup } from "../services/authService";
+import {
+  initiateSignup as apiInitiateSignup,
+  verifySignupOtp as apiVerifySignupOtp,
+  resendSignupOtp as apiResendSignupOtp,
+  login as apiLogin
+} from "../services/authService";
 
 const AuthContext = createContext(null);
 const STORAGE_KEY = "sheq_auth_session";
@@ -36,7 +41,7 @@ export function AuthProvider({ children }) {
       ...session,
       joinedDate: session.createdAt
         ? new Date(session.createdAt).toLocaleDateString()
-        : "Member",
+        : "Member"
     }, rememberMe);
   }
 
@@ -71,30 +76,53 @@ export function AuthProvider({ children }) {
     return saveSession(adminUser, rememberMe);
   }
 
-  function startSignup({ name, emailOrPhone, method, password, rememberMe = true }) {
-    setPendingSignup({ name, emailOrPhone, method, password, rememberMe });
+  async function startSignup({ name, emailOrPhone, method = "email", password, rememberMe = true }) {
+    const isPhone = method === "phone" || !emailOrPhone.includes("@");
+
+    const result = await apiInitiateSignup({
+      name,
+      email: isPhone ? undefined : emailOrPhone,
+      phone: isPhone ? emailOrPhone : undefined,
+      password
+    });
+
+    const isDelivered = isPhone ? result.smsDeliveryConfigured : result.emailDeliveryConfigured;
+
+    setPendingSignup({
+      name,
+      email: isPhone ? null : emailOrPhone,
+      phone: isPhone ? (result.phone || emailOrPhone) : null,
+      method: isPhone ? "phone" : "email",
+      rememberMe,
+      deliveryConfigured: isDelivered,
+      emailDeliveryConfigured: result.emailDeliveryConfigured,
+      smsDeliveryConfigured: result.smsDeliveryConfigured,
+      provider: result.provider,
+      notice: result.notice,
+      expiresInMinutes: result.expiresInMinutes,
+      resendCooldownSeconds: result.resendCooldownSeconds
+    });
+
+    return result;
   }
 
   async function verifyOtp(code) {
     if (!pendingSignup) {
-      throw new Error("No pending registration found.");
+      throw new Error("No pending registration found. Please start registration again.");
     }
 
-    if (!code || !/^\d{4,6}$/.test(code.trim())) {
-      throw new Error("Please enter a valid 4 to 6 digit verification code.");
+    if (!code || !/^\d{4,8}$/.test(code.trim())) {
+      throw new Error("Please enter a valid verification code.");
     }
 
-    // The backend does not send or verify OTPs yet.
-    // Create the account through the API, but do not claim contact verification.
-    const session = await apiSignup({
-      name: pendingSignup.name,
-      emailOrPhone: pendingSignup.emailOrPhone,
-      method: pendingSignup.method,
-      password: pendingSignup.password
+    const session = await apiVerifySignupOtp({
+      email: pendingSignup.email,
+      phone: pendingSignup.phone,
+      otp: code.trim()
     });
 
     const rememberMe = pendingSignup.rememberMe;
-    const newUser = saveSession({
+    const verifiedUser = saveSession({
       ...session,
       joinedDate: session.createdAt
         ? new Date(session.createdAt).toLocaleDateString()
@@ -102,7 +130,28 @@ export function AuthProvider({ children }) {
     }, rememberMe);
 
     setPendingSignup(null);
-    return newUser;
+    return verifiedUser;
+  }
+
+  async function resendOtp() {
+    if (!pendingSignup) {
+      throw new Error("No pending registration found.");
+    }
+
+    const result = await apiResendSignupOtp({
+      email: pendingSignup.email,
+      phone: pendingSignup.phone
+    });
+
+    const isDelivered = pendingSignup.method === "phone" ? result.smsDeliveryConfigured : result.emailDeliveryConfigured;
+
+    setPendingSignup(prev => ({
+      ...prev,
+      deliveryConfigured: isDelivered,
+      notice: result.notice,
+      resendCooldownSeconds: result.resendCooldownSeconds
+    }));
+    return result;
   }
 
   function logout() {
@@ -134,6 +183,7 @@ export function AuthProvider({ children }) {
         loginAdmin,
         startSignup,
         verifyOtp,
+        resendOtp,
         logout,
         updateProfile,
         isAuthenticated: !!user,
