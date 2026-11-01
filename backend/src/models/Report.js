@@ -17,7 +17,12 @@ const reportSchema = new mongoose.Schema({
   reporterId: { type: mongoose.Schema.Types.ObjectId, ref: "User", select: false },
   sourceType: { type: String, enum: ["community", "imported", "synthetic_demo"], default: "community", index: true },
   dataLabel: { type: String, default: "community_report" },
-  moderationNote: { type: String, maxlength: 2000 }
+  moderationNote: { type: String, maxlength: 2000 },
+  // ML data collection fields (optional, backwards-compatible with all existing reports)
+  // null = not yet assessed, true = eligible for training, false = excluded
+  mlEligible: { type: Boolean, default: null, index: true },
+  // Reason excluded from ML training (e.g. "flagged", "missing_coordinates", "synthetic_demo")
+  mlExcludeReason: { type: String, maxlength: 200, default: null }
 }, { timestamps: true, versionKey: false });
 reportSchema.index({ location: "2dsphere" });
 reportSchema.index({ createdAt: -1, category: 1 });
