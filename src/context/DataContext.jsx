@@ -26,7 +26,12 @@ import {
   reviewHotspotStateApi,
   fetchEscalationsApi,
   createEscalationApi,
-  fetchInfrastructureLayerApi
+  fetchInfrastructureLayerApi,
+  fetchMLStatusApi,
+  triggerTrainingApi,
+  fetchBackendCandidatesApi,
+  exportDatasetApi,
+  deployModelApi
 } from "../services/dataServices";
 
 const DataContext = createContext(null);
@@ -49,6 +54,12 @@ export function DataProvider({ children }) {
   });
   const [alerts, setAlerts] = useState(initialAlerts);
   const [backendLoaded, setBackendLoaded] = useState(false);
+  // ML system status fetched from backend (Admin only)
+  const [mlStatus, setMlStatus] = useState(null);
+  const [mlStatusLoading, setMlStatusLoading] = useState(false);
+  // Backend-computed hotspot candidates (uses actual ML scoring from the server)
+  const [backendCandidates, setBackendCandidates] = useState([]);
+  const [backendCandidatesLoading, setBackendCandidatesLoading] = useState(false);
   const [infrastructureLayers, setInfrastructureLayers] = useState({
     policeStations: null,
     busStops: null,
@@ -439,6 +450,69 @@ export function DataProvider({ children }) {
     });
   }
 
+  /**
+   * Fetches the live ML system status from the backend.
+   * Should be called by AdminHotspots when it mounts.
+   * Requires admin auth (backend enforces this).
+   */
+  async function fetchMLStatus() {
+    setMlStatusLoading(true);
+    try {
+      const status = await fetchMLStatusApi();
+      if (status) setMlStatus(status);
+    } catch {
+      // Fallback gracefully
+    } finally {
+      setMlStatusLoading(false);
+    }
+  }
+
+  /**
+   * Requests the backend to validate training readiness and record a training run.
+   * Does NOT run the Python script inline -- see the backend response for instructions.
+   */
+  async function triggerTraining(options = {}) {
+    const result = await triggerTrainingApi(options);
+    // Refresh ML status after the training record is created
+    await fetchMLStatus();
+    return result;
+  }
+
+  /**
+   * Fetches backend ML-scored hotspot candidates from MongoDB.
+   * These use actual Random Forest scoring via hotspotService.js.
+   */
+  async function fetchBackendCandidates() {
+    setBackendCandidatesLoading(true);
+    try {
+      const candidates = await fetchBackendCandidatesApi();
+      if (Array.isArray(candidates)) setBackendCandidates(candidates);
+    } catch {
+      // Fallback gracefully
+    } finally {
+      setBackendCandidatesLoading(false);
+    }
+  }
+
+  /**
+   * Exports all eligible real reports to a CSV on the server.
+   * Returns the export result object from the backend.
+   */
+  async function exportDataset() {
+    return await exportDatasetApi();
+  }
+
+  /**
+   * Deploys a candidate model version. Reads training_result.json on the server,
+   * validates metrics, and updates MLModelRegistry to deployed status.
+   */
+  async function deployModel(options = {}) {
+    const result = await deployModelApi(options);
+    // Refresh ML status to reflect newly deployed model
+    await fetchMLStatus();
+    return result;
+  }
+
   return (
     <DataContext.Provider
       value={{
@@ -466,7 +540,16 @@ export function DataProvider({ children }) {
         removeSavedPlace,
         updateContacts,
         infrastructureLayers,
-        loadInfrastructureLayer
+        loadInfrastructureLayer,
+        mlStatus,
+        mlStatusLoading,
+        backendCandidates,
+        backendCandidatesLoading,
+        fetchMLStatus,
+        triggerTraining,
+        fetchBackendCandidates,
+        exportDataset,
+        deployModel
       }}
     >
       {children}

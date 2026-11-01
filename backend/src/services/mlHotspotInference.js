@@ -108,7 +108,8 @@ export function calculateInfrastructureProximities(lat, lon) {
  * Loads the trained Random Forest model artifact.
  * Verifies tree structure integrity and feature order.
  */
-export function loadModelArtifact() {
+export function loadModelArtifact(forceReload = false) {
+  if (forceReload) cachedModel = null;
   if (cachedModel) return cachedModel;
 
   try {

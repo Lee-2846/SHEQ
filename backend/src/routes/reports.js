@@ -6,6 +6,10 @@ import Confirmation from "../models/Confirmation.js";
 import { requireAuth, requireAdmin, optionalAuth } from "../middleware/auth.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 import { publicReport } from "../utils/sanitize.js";
+import {
+  tagReportMLEligibility,
+  retagReportOnStatusChange
+} from "../services/mlDataCollectionService.js";
 
 const router = Router();
 const reportSchema = z.object({
@@ -40,6 +44,12 @@ router.post("/", requireAuth, asyncHandler(async (req, res) => {
     incidentAt: d.incidentAt ? new Date(d.incidentAt) : undefined,
     isAnonymousPublicly: d.isAnonymousPublicly, reporterId: req.user._id
   });
+
+  // Non-blocking: tag this report for ML eligibility after saving.
+  // Does not affect the HTTP response or the user's experience.
+  // PII (reporterId) is excluded at the feature extraction level.
+  tagReportMLEligibility(String(report._id)).catch(() => {});
+
   return res.status(201).json({ report: publicReport(report) });
 }));
 router.get("/:id/comments", requireAuth, asyncHandler(async (req, res) => {
@@ -79,6 +89,13 @@ router.patch("/:id/moderation", requireAuth, requireAdmin, asyncHandler(async (r
   if (!parsed.success) return res.status(400).json({ error: "Invalid moderation update." });
   const report = await Report.findByIdAndUpdate(req.params.id, parsed.data, { new: true, runValidators: true }).select("-reporterId");
   if (!report) return res.status(404).json({ error: "Report not found." });
+
+  // Non-blocking: re-assess ML eligibility when moderation status changes.
+  // Critical for Flagged reports which must be excluded from training.
+  if (parsed.data.status) {
+    retagReportOnStatusChange(String(req.params.id), parsed.data.status).catch(() => {});
+  }
+
   return res.json({ report });
 }));
 export default router;

@@ -243,6 +243,76 @@ export async function fetchInfrastructureLayerApi(layer) {
   }
 }
 
+// ML Status and Training API
+
+/**
+ * Fetches live ML system status for the Admin Hotspots page.
+ * Returns dataset stats, model version, training history, and benchmark metrics.
+ * Requires admin authentication.
+ */
+export async function fetchMLStatusApi() {
+  try {
+    return await apiRequest("/hotspots/ml-status", { headers: authHeader() });
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Triggers a training readiness check and records a training run in MLModelRegistry.
+ * Actual Python retraining must be run separately via the dataset_pipeline.py script.
+ * Requires admin authentication.
+ *
+ * @param {Object} options
+ * @param {boolean} [options.allowSyntheticOnly] - Allow training on synthetic data only
+ * @param {number}  [options.overrideThreshold]  - Override minimum eligible records threshold
+ * @param {string}  [options.notes]              - Admin notes for the training record
+ */
+export async function triggerTrainingApi({ allowSyntheticOnly = false, overrideThreshold, notes = "" } = {}) {
+  try {
+    return await apiRequest("/hotspots/train", {
+      method: "POST",
+      headers: authHeader(),
+      body: JSON.stringify({ allowSyntheticOnly, overrideThreshold, notes })
+    });
+  } catch (err) {
+    return { error: err.message || "Training request failed." };
+  }
+}
+
+/**
+ * Exports all ML-eligible real reports to a CSV file on the server.
+ * Returns the export status, record count, and file path.
+ * Requires admin authentication.
+ */
+export async function exportDatasetApi() {
+  try {
+    return await apiRequest("/hotspots/export-dataset", { headers: authHeader() });
+  } catch (err) {
+    return { error: err.message || "Dataset export failed." };
+  }
+}
+
+/**
+ * Deploys a trained model by reading training_result.json and updating MLModelRegistry.
+ * Previous deployed model is superseded. Requires admin authentication.
+ *
+ * @param {Object} options
+ * @param {string} options.modelVersion     - Model version tag to deploy
+ * @param {string} [options.trainingRecordId] - MongoDB _id of the training record
+ */
+export async function deployModelApi({ modelVersion, trainingRecordId } = {}) {
+  try {
+    return await apiRequest("/hotspots/deploy-model", {
+      method: "POST",
+      headers: authHeader(),
+      body: JSON.stringify({ modelVersion, trainingRecordId })
+    });
+  } catch (err) {
+    return { error: err.message || "Model deployment failed." };
+  }
+}
+
 // Admin Moderation: User Verification Status
 export async function updateUserVerificationStatusApi(userId, verificationStatus) {
   try {

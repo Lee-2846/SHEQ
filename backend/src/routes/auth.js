@@ -18,6 +18,7 @@ import {
   normalizePhoneNumber,
   isSmsConfigured
 } from "../services/smsService.js";
+const router = Router();
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
